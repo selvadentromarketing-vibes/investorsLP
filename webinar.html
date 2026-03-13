@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Live Investor Webinar &mdash; Selvadentro Tulum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #F8F5EF; color: #1A1611; font-family: "Inter", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+    .serif { font-family: "Playfair Display", serif; }
+    .gold { color: #C4973A; }
+    .card { background: #FFFFFF; border: 1px solid #E5DDD0; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .stat-chip { background: #FBF8F3; border: 1px solid #E5DDD0; border-radius: 12px; }
+    .gold-badge { background: rgba(196,151,58,0.12); border: 1px solid rgba(196,151,58,0.3); color: #9A7228; border-radius: 20px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:4px 14px; display:inline-block; }
+    .cta-primary { background: linear-gradient(135deg, #C4973A, #9A7228); color: #FFFFFF; font-weight: 600; transition: all 0.3s; text-align: center; display: block; cursor:pointer; }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(196,151,58,0.3); background: linear-gradient(135deg, #D4A749, #C4973A); }
+    .countdown-box { background: #FBF8F3; border: 1px solid #E5DDD0; border-radius: 10px; padding: 14px 8px; text-align: center; flex: 1; min-width: 0; }
+    .countdown-num { font-family: "Playfair Display", serif; font-size: 2.25rem; font-weight: 700; color: #C4973A; line-height: 1; }
+    @media (max-width:400px) { .countdown-num { font-size: 1.65rem; } .countdown-box { padding: 10px 4px; } }
+    html[lang="en"] .es { display: none; }
+    html[lang="es"] .en { display: none; }
+    .lang-toggle { display: flex; align-items: center; border: 1.5px solid #E5DDD0; border-radius: 20px; overflow: hidden; }
+    .lang-btn { padding: 4px 11px; cursor: pointer; font-size: 0.72rem; font-weight: 700; transition: all 0.2s; color: #9A8E7A; background: transparent; border: none; }
+    .lang-btn.active { background: #1A1611; color: #F8F5EF; }
+  </style>
+</head>
+<body>
+<nav style="background:#FFFFFF;border-bottom:1px solid #E5DDD0;">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#C4973A,#9A7228);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C8 3 4 6 4 11c0 3 1.5 5 4 7l4 3 4-3c2.5-2 4-4 4-7 0-5-4-8-8-8z" fill="#FFFFFF"/></svg>
+      </div>
+      <span class="serif font-semibold text-sm" style="color:#1A1611;">Selvadentro Tulum</span>
+    </a>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- URGENCY BAR -->
+<div style="background:#1A1611;padding:9px 16px;text-align:center;">
+  <p style="font-size:0.75rem;color:rgba(245,240,230,0.85);"><strong style="color:#C4973A;">86%</strong> of the first Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> available at current price &middot; Price increases every 10 lots sold</p>
+</div>
+
+<main class="flex-1 py-12 md:py-20 px-5 sm:px-6">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <div class="gold-badge mb-5">Free Live Event</div>
+      <h1 class="serif mb-4" style="font-size:clamp(1.9rem,5vw,3rem);line-height:1.2;color:#1A1611;font-weight:700;">
+        Selvadentro Investor<br/><em style="color:#C4973A;font-style:normal;">Live Webinar</em>
+      </h1>
+      <p class="text-base sm:text-lg" style="color:#6B5F4E;line-height:1.7;">Get the full investment case presented live by our team. Numbers, legal structure, ROI projections, and live Q&amp;A.</p>
+    </div>
+
+    <!-- Event Details -->
+    <div class="card p-6 mb-6">
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">Event Details</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">Thursday, March 26, 2026</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">7:00 PM EST &middot; 6:00 PM CST &middot; 4:00 PM PST</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">Zoom &mdash; link sent to your email on registration</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">Replay available if you can&rsquo;t attend live</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown -->
+    <div class="card p-5 mb-6 text-center">
+      <p style="font-size:0.75rem;color:#9A8E7A;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;">Webinar starts in</p>
+      <div class="flex gap-3 justify-center">
+        <div class="countdown-box"><div class="countdown-num" id="w-days">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">DAYS</div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-hours">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">HOURS</div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-mins">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">MINS</div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-secs">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">SECS</div></div>
+      </div>
+    </div>
+
+    <!-- What You'll Learn -->
+    <div class="card p-6 mb-6">
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">What You&rsquo;ll Learn</h3>
+      <div class="space-y-3">
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">1</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">The complete investment case &mdash; why Selvadentro, why now</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">2</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Legal structure, Fideicomiso ownership, and deed process</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">3</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">ROI projections: Phase 1 to Phase 4 appreciation (<strong style="color:#1A1611;">+134%</strong>)</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">4</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Financing options: 20% minimum down payment, flexible payment plans</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">5</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Live Q&amp;A &mdash; our team answers every question</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="card p-6 mb-6">
+      <h3 class="serif font-semibold text-lg mb-2" style="color:#1A1611;">Reserve Your Seat &mdash; Free</h3>
+      <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Seats are limited. Register below to receive your Zoom link.</p>
+      <!-- =====================================================
+           YOUR WEBINAR REGISTRATION FORM EMBED GOES HERE
+           ===================================================== -->
+      <div style="border:2px dashed #E5DDD0;border-radius:12px;padding:56px 24px;text-align:center;background:#FAFAF7;">
+        <p style="color:#C4C0B8;font-size:0.8rem;font-family:monospace;">[ Webinar registration form embed ]</p>
+      </div>
+      <!-- END FORM PLACEHOLDER -->
+    </div>
+
+    <!-- Bonus Content -->
+    <div class="card p-6 mb-8">
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">Free Bonuses for Registrants</h3>
+      <div class="space-y-4">
+        <div class="flex gap-4 items-start">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(196,151,58,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#1A1611;">Selvadentro Investor Guide</strong> &mdash; 42 pages covering the full investment case, legal structure, and project breakdown</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(196,151,58,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#1A1611;">Tulum Market Report 2026</strong> &mdash; latest price data, demand trends, and infrastructure updates</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(196,151,58,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+          </div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#1A1611;">ROI Projection Spreadsheet</strong> &mdash; model your own scenarios with real numbers</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single CTA -->
+    <a href="book-call.html" class="cta-primary px-7 py-4 rounded-xl text-sm">Book a Private Investor Call &rarr;</a>
+    <p style="text-align:center;font-size:0.75rem;color:#9A8E7A;margin-top:16px;">
+      <a href="guide.html" style="color:#C4973A;text-decoration:none;">Download Investor Guide</a>
+      &nbsp;&middot;&nbsp;
+      <a href="index.html" style="color:#C4973A;text-decoration:none;">Back to Overview</a>
+    </p>
+
+  </div>
+</main>
+
+<footer style="background:#1A1611;padding:32px 24px;text-align:center;margin-top:auto;">
+  <p style="font-size:0.78rem;color:rgba(245,240,230,0.5);margin-bottom:8px;">
+    <a href="tel:+529841374927" style="color:rgba(196,151,58,0.7);text-decoration:none;">+52 984 137 4927</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:d.comercial@selvadentrotulum.com" style="color:rgba(196,151,58,0.7);text-decoration:none;">d.comercial@selvadentrotulum.com</a>
+  </p>
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.3);">&copy; 2026 Selvadentro Tulum &middot; <a href="index.html" style="color:rgba(196,151,58,0.5);">selvadentrotulum.com</a></p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem("slvd_lang", lang);
+  document.querySelectorAll(".lang-btn").forEach(function(btn) { btn.classList.remove("active"); });
+  document.querySelectorAll("#btn-" + lang).forEach(function(btn) { btn.classList.add("active"); });
+}
+(function() {
+  var saved = localStorage.getItem("slvd_lang");
+  if (saved === "es") { setLang("es"); }
+})();
+function updateWebinarCountdown() {
+  var target = new Date("2026-03-26T23:00:00Z");
+  var now = new Date();
+  var diff = Math.max(0, target - now);
+  var days = Math.floor(diff / 86400000);
+  var hours = Math.floor((diff % 86400000) / 3600000);
+  var mins = Math.floor((diff % 3600000) / 60000);
+  var secs = Math.floor((diff % 60000) / 1000);
+  document.getElementById("w-days").textContent = String(days).padStart(2, "0");
+  document.getElementById("w-hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("w-mins").textContent = String(mins).padStart(2, "0");
+  document.getElementById("w-secs").textContent = String(secs).padStart(2, "0");
+}
+updateWebinarCountdown();
+setInterval(updateWebinarCountdown, 1000);
+</script>
+</body>
+</html>

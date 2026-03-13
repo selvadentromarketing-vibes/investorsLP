@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Call Request Received &mdash; Selvadentro Tulum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #F8F5EF; color: #1A1611; font-family: "Inter", sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+    .serif { font-family: "Playfair Display", serif; }
+    .gold { color: #C4973A; }
+    .card { background: #FFFFFF; border: 1px solid #E5DDD0; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .gold-badge { background: rgba(196,151,58,0.12); border: 1px solid rgba(196,151,58,0.3); color: #9A7228; border-radius: 20px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:4px 14px; display:inline-block; }
+    @keyframes checkPop { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+    .check-pop { animation: checkPop 0.6s ease forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
+    .delay-1 { animation-delay: 0.15s; opacity: 0; }
+    .delay-2 { animation-delay: 0.3s; opacity: 0; }
+    .delay-3 { animation-delay: 0.45s; opacity: 0; }
+    html[lang="en"] .es { display: none; }
+    html[lang="es"] .en { display: none; }
+    .lang-toggle { display: flex; align-items: center; border: 1.5px solid #E5DDD0; border-radius: 20px; overflow: hidden; }
+    .lang-btn { padding: 4px 11px; cursor: pointer; font-size: 0.72rem; font-weight: 700; transition: all 0.2s; color: #9A8E7A; background: transparent; border: none; }
+    .lang-btn.active { background: #1A1611; color: #F8F5EF; }
+  </style>
+</head>
+<body>
+<nav style="background:#FFFFFF;border-bottom:1px solid #E5DDD0;">
+  <div class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 w-fit">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#C4973A,#9A7228);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 3C8 3 4 6 4 11c0 3 1.5 5 4 7l4 3 4-3c2.5-2 4-4 4-7 0-5-4-8-8-8z" fill="#FFFFFF"/></svg>
+      </div>
+      <span class="serif font-semibold text-sm" style="color:#1A1611;">Selvadentro Tulum</span>
+    </a>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-1 flex items-center justify-center py-12 md:py-20 px-5 sm:px-6">
+  <div class="max-w-xl w-full text-center">
+    <div class="check-pop w-20 h-20 rounded-full mx-auto mb-8 flex items-center justify-center" style="background:rgba(196,151,58,0.1);border:2px solid rgba(196,151,58,0.35);">
+      <svg width="40" height="40" fill="none" viewBox="0 0 24 24" stroke="#C4973A" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+    </div>
+
+    <div class="fade-up">
+      <div class="gold-badge mb-5">Request Received</div>
+      <h1 class="serif mb-4" style="font-size:clamp(1.9rem,5vw,3rem);line-height:1.2;color:#1A1611;font-weight:700;">
+        We&rsquo;ll Be in Touch<br/><em style="color:#C4973A;font-style:normal;">Within 24 Hours</em>
+      </h1>
+      <p class="text-base sm:text-lg mb-8" style="color:#6B5F4E;line-height:1.7;">Our senior investment advisor will reach out to confirm your call time. Expect a message via email and WhatsApp.</p>
+    </div>
+
+    <div class="card p-6 mb-5 text-left fade-up delay-1">
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">Your Call at a Glance</h3>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">30 minutes, no pressure</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">1-on-1 with a senior investment advisor</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">Zoom, Google Meet, or phone &mdash; your choice</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"/></svg>
+          <span style="font-size:0.88rem;color:#1A1611;font-weight:500;">Available in English and Spanish</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-6 mb-8 text-left fade-up delay-2">
+      <h3 class="serif font-semibold text-lg mb-3" style="color:#1A1611;">Prepare for Your Call</h3>
+      <div class="space-y-3">
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">1</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><a href="guide.html" style="color:#C4973A;text-decoration:underline;">Download the investor guide</a> &mdash; read it before your call for a much richer conversation</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">2</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Note your 3 biggest questions &mdash; we&rsquo;ll make sure every one gets answered</p>
+        </div>
+        <div class="flex gap-3">
+          <div style="width:22px;height:22px;border-radius:50%;background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#C4973A;font-weight:700;flex-shrink:0;">3</div>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Keep 30&ndash;45 minutes free &mdash; our advisors typically run longer when investors are engaged</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up delay-3">
+      <p style="font-size:0.75rem;color:#9A8E7A;">
+        <a href="guide.html" style="color:#C4973A;text-decoration:none;">Download Investor Guide</a>
+        &nbsp;&middot;&nbsp;
+        <a href="webinar.html" style="color:#C4973A;text-decoration:none;">Join the Live Webinar</a>
+        &nbsp;&middot;&nbsp;
+        <a href="index.html" style="color:#C4973A;text-decoration:none;">Back to Overview</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer style="background:#1A1611;padding:32px 24px;text-align:center;margin-top:auto;">
+  <p style="font-size:0.78rem;color:rgba(245,240,230,0.5);margin-bottom:8px;">
+    <a href="tel:+529841374927" style="color:rgba(196,151,58,0.7);text-decoration:none;">+52 984 137 4927</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:d.comercial@selvadentrotulum.com" style="color:rgba(196,151,58,0.7);text-decoration:none;">d.comercial@selvadentrotulum.com</a>
+  </p>
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.3);">&copy; 2026 Selvadentro Tulum &middot; <a href="index.html" style="color:rgba(196,151,58,0.5);">selvadentrotulum.com</a></p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  localStorage.setItem("slvd_lang", lang);
+  document.querySelectorAll(".lang-btn").forEach(function(btn) { btn.classList.remove("active"); });
+  document.querySelectorAll("#btn-" + lang).forEach(function(btn) { btn.classList.add("active"); });
+}
+(function() {
+  var saved = localStorage.getItem("slvd_lang");
+  if (saved === "es") { setLang("es"); }
+})();
+</script>
+</body>
+</html>
