@@ -48,6 +48,24 @@
     .amenity-name { font-size: 0.82rem; font-weight: 600; color: #FFFFFF; font-family: "Playfair Display", serif; }
     .logo-block { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px 12px; border: 1px solid #E5DDD0; border-radius: 12px; background: #FFFFFF; min-height: 88px; }
     @media (max-width:400px) { .gc-num { font-size: 3rem; } .gc-sep { font-size: 2.5rem; } .gc-unit { padding: 0 4px; } }
+    /* — Scroll Animations & Mobile Polish — */
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-l { opacity: 0; transform: translateX(-20px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal-l.visible { opacity: 1; transform: none; }
+    @keyframes pulse-cta { 0%,100%{ box-shadow:0 6px 28px rgba(196,151,58,0.22); } 50%{ box-shadow:0 6px 42px rgba(196,151,58,0.48); } }
+    .cta-pulse { animation: pulse-cta 2.8s ease-in-out infinite; }
+    .cta-pulse:hover { animation: none; }
+    @keyframes shimmer-gold { 0%{background-position:200% center;} 100%{background-position:-200% center;} }
+    /* Sticky Mobile CTA */
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px max(16px, env(safe-area-inset-bottom, 10px)); background: #FFFFFF; border-top: 1px solid #E5DDD0; box-shadow: 0 -4px 20px rgba(0,0,0,0.09); transform: translateY(100%); transition: transform 0.4s cubic-bezier(.16,1,.3,1); }
+      .sticky-cta.shown { transform: translateY(0); }
+      body { padding-bottom: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal, .reveal-l { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
   </style>
 </head>
 <body>
@@ -96,13 +114,13 @@
 </nav>
 
 <!-- URGENCY BAR -->
-<div style="background:#1A1611;padding:9px 16px;text-align:center;">
-  <p style="font-size:0.75rem;color:rgba(245,240,230,0.85);">
-    <strong style="color:#C4973A;">86%</strong> <span class="en">of the first Enclave sold</span><span class="es">del primer Enclave vendido</span>
+<div style="background:#1A1611;padding:8px 16px;text-align:center;overflow:hidden;">
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+    <strong style="color:#C4973A;">86%</strong> <span class="en">of Enclave sold</span><span class="es">del Enclave vendido</span>
     &nbsp;&middot;&nbsp;
-    <strong style="color:#C4973A;">8 <span class="en">lots</span><span class="es">lotes</span></strong> <span class="en">available at current price</span><span class="es">disponibles al precio actual</span>
+    <strong style="color:#C4973A;">8 <span class="en">lots</span><span class="es">lotes</span></strong> <span class="en">at current price</span><span class="es">al precio actual</span>
     &nbsp;&middot;&nbsp;
-    <span class="en">Price increases every 10 lots sold</span><span class="es">Precio sube cada 10 lotes vendidos</span>
+    <span class="en">Price increases every 10 lots sold</span><span class="es">Precio sube cada 10 lotes</span>
   </p>
 </div>
 
@@ -120,11 +138,11 @@
     </p>
     <div class="flex flex-wrap justify-center gap-3 mb-8">
       <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold">86%</div>
+        <div class="serif text-2xl font-bold gold"><span data-count="86" data-suffix="%">86%</span></div>
         <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">First Enclave Sold</span><span class="es">Primer Enclave Vendido</span></div>
       </div>
       <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold">9</div>
+        <div class="serif text-2xl font-bold gold"><span data-count="9">9</span></div>
         <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Natural Cenotes</span><span class="es">Cenotes Naturales</span></div>
       </div>
       <div class="stat-chip px-5 py-3 text-center">
@@ -133,11 +151,11 @@
         <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Min. Lot Size</span><span class="es">Tama&ntilde;o M&iacute;n.</span></div>
       </div>
       <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold">+134%</div>
+        <div class="serif text-2xl font-bold gold">+<span data-count="134" data-suffix="%">134%</span></div>
         <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Phase 1&rarr;4 Total Gain</span><span class="es">Ganancia Total Fase 1&rarr;4</span></div>
       </div>
     </div>
-    <a href="book-call.html" class="cta-primary px-9 py-4 rounded-xl text-sm sm:text-base" style="display:inline-block;">
+    <a href="book-call.html" class="cta-primary cta-pulse px-9 py-4 rounded-xl text-sm sm:text-base" style="display:inline-block;">
       <span class="en">Book a Private Investor Call &rarr;</span>
       <span class="es">Reservar una Llamada Privada &rarr;</span>
     </a>
@@ -177,7 +195,7 @@
       <p class="max-w-xl mx-auto text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">We don't sell a lifestyle. We sell an investment with solid foundations in one of the fastest-growing areas of Mexico.</span><span class="es">No vendemos un estilo de vida. Vendemos una inversi&oacute;n con bases s&oacute;lidas en una de las zonas de mayor crecimiento de M&eacute;xico.</span></p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-      <div class="card p-6">
+      <div class="card p-6 reveal">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="22" height="22" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
@@ -189,7 +207,7 @@
           </div>
         </div>
       </div>
-      <div class="card p-6">
+      <div class="card p-6 reveal" style="transition-delay:0.1s;">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="22" height="22" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="10" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v0m0 8v0M4 12H2m20 0h-2M6.34 6.34l-1.42-1.42M19.07 4.93l-1.42 1.42M6.34 17.66l-1.42 1.42M19.07 19.07l-1.42-1.42"/></svg>
@@ -201,7 +219,7 @@
           </div>
         </div>
       </div>
-      <div class="card p-6">
+      <div class="card p-6 reveal" style="transition-delay:0.2s;">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="22" height="22" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
@@ -213,7 +231,7 @@
           </div>
         </div>
       </div>
-      <div class="card p-6">
+      <div class="card p-6 reveal" style="transition-delay:0.3s;">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="22" height="22" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
@@ -236,7 +254,7 @@
       <h2 class="serif mb-3" style="font-size:clamp(1.7rem,4vw,2.5rem);color:#1A1611;font-weight:700;"><span class="en">Selvadentro vs. Tulum Average</span><span class="es">Selvadentro vs. Promedio Tulum</span></h2>
       <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">Compare the numbers objectively.</span><span class="es">Compare los n&uacute;meros objetivamente.</span></p>
     </div>
-    <div class="card overflow-hidden">
+    <div class="card overflow-hidden reveal">
       <div class="overflow-x-auto">
         <table>
           <thead>
@@ -305,7 +323,7 @@
     <div style="background:rgba(196,151,58,0.1);border:1px solid rgba(196,151,58,0.22);border-radius:20px;padding:6px 16px;"><span style="font-size:0.72rem;color:#C4973A;"><span class="en">+1% price increase every 10 lots sold</span><span class="es">+1% de aumento cada 10 lotes vendidos</span></span></div>
   </div>
   <div style="margin-top:32px;">
-    <a href="book-call.html" class="cta-primary px-9 py-4 rounded-xl text-sm" style="display:inline-block;"><span class="en">Secure Phase 1 Price &rarr;</span><span class="es">Asegurar Precio Fase 1 &rarr;</span></a>
+    <a href="book-call.html" class="cta-primary cta-pulse px-9 py-4 rounded-xl text-sm" style="display:inline-block;"><span class="en">Secure Phase 1 Price &rarr;</span><span class="es">Asegurar Precio Fase 1 &rarr;</span></a>
   </div>
 </div>
 
@@ -313,9 +331,9 @@
 <div style="background:#F8F5EF;padding:48px 0 72px;">
   <div class="max-w-5xl mx-auto px-5 sm:px-6">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="card p-5 phase-current relative">
-        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C4973A,#9A7228);color:#FFFFFF;font-size:0.58rem;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;letter-spacing:0.05em;"><span class="en">CURRENT &middot; 8 LOTS LEFT</span><span class="es">ACTUAL &middot; 8 LOTES</span></div>
-        <div class="text-center mt-3">
+      <div class="card p-5 phase-current reveal" style="position:relative;overflow:visible;padding-top:28px;">
+        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#C4973A,#9A7228);color:#FFFFFF;font-size:0.58rem;font-weight:700;padding:3px 10px;border-radius:0 0 10px 10px;white-space:nowrap;letter-spacing:0.05em;"><span class="en">CURRENT &middot; 8 LOTS LEFT</span><span class="es">ACTUAL &middot; 8 LOTES</span></div>
+        <div class="text-center mt-1">
           <p style="font-size:0.62rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#9A8E7A;margin-bottom:8px;"><span class="en">Phase 1</span><span class="es">Fase 1</span></p>
           <div class="serif font-bold en" style="font-size:1.75rem;color:#C4973A;margin-bottom:4px;">$15.50<span style="font-size:0.85rem;">/sqft</span></div>
           <div class="serif font-bold es" style="font-size:1.75rem;color:#C4973A;margin-bottom:4px;">$3,340<span style="font-size:0.85rem;">/m&sup2;</span></div>
@@ -361,7 +379,7 @@
       <h2 class="serif mb-3" style="font-size:clamp(1.7rem,4vw,2.5rem);color:#1A1611;font-weight:700;"><span class="en">15+ Exclusive Amenities</span><span class="es">M&aacute;s de 15 Amenidades Exclusivas</span></h2>
       <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">Each space designed to coexist with the jungle. Hover to explore.</span><span class="es">Cada espacio dise&ntilde;ado para coexistir con la selva.</span></p>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 reveal">
       <div class="amenity-card">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/1.CENOTE_MIRADOR-scaled.jpg" alt="Cenote Mirador" loading="lazy"/>
         <div class="amenity-base"><div class="amenity-name"><span class="en">Cenote Mirador</span><span class="es">Cenote Mirador</span></div></div>
@@ -414,26 +432,26 @@
       <h2 class="serif mb-3" style="font-size:clamp(1.7rem,4vw,2.5rem);color:#1A1611;font-weight:700;"><span class="en">A Developer You Can Verify</span><span class="es">Un Desarrollador Que Puedes Verificar</span></h2>
       <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">We don't ask you to trust our words. These numbers are verifiable in the Registro P&uacute;blico de la Propiedad.</span><span class="es">No te pedimos que conf&iacute;es en nuestras palabras. Verificable en el Registro P&uacute;blico de la Propiedad.</span></p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 reveal">
       <div class="card p-5 text-center">
-        <div class="serif font-bold gold" style="font-size:2rem;">20+</div>
+        <div class="serif font-bold gold" style="font-size:2rem;"><span data-count="20" data-suffix="+">20+</span></div>
         <div style="font-size:0.72rem;color:#9A8E7A;margin-top:4px;"><span class="en">Years Experience</span><span class="es">A&ntilde;os de Experiencia</span></div>
       </div>
       <div class="card p-5 text-center">
-        <div class="serif font-bold gold" style="font-size:2rem;">12</div>
+        <div class="serif font-bold gold" style="font-size:2rem;"><span data-count="12">12</span></div>
         <div style="font-size:0.72rem;color:#9A8E7A;margin-top:4px;"><span class="en">Projects Delivered</span><span class="es">Proyectos Entregados</span></div>
       </div>
       <div class="card p-5 text-center">
-        <div class="serif font-bold gold" style="font-size:2rem;">800+</div>
+        <div class="serif font-bold gold" style="font-size:2rem;"><span data-count="800" data-suffix="+">800+</span></div>
         <div style="font-size:0.72rem;color:#9A8E7A;margin-top:4px;"><span class="en">Families Served</span><span class="es">Familias Atendidas</span></div>
       </div>
       <div class="card p-5 text-center">
-        <div class="serif font-bold gold" style="font-size:2rem;">100%</div>
+        <div class="serif font-bold gold" style="font-size:2rem;"><span data-count="100" data-suffix="%">100%</span></div>
         <div style="font-size:0.72rem;color:#9A8E7A;margin-top:4px;"><span class="en">Deeds Delivered</span><span class="es">Escrituras Entregadas</span></div>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-      <div class="card p-6">
+      <div class="card p-6 reveal">
         <div class="flex items-start gap-4">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
@@ -451,7 +469,7 @@
           </div>
         </div>
       </div>
-      <div class="card p-6">
+      <div class="card p-6 reveal" style="transition-delay:0.12s;">
         <div class="flex items-start gap-4">
           <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(196,151,58,0.1);">
             <svg width="18" height="18" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
@@ -502,12 +520,12 @@
       <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">Tulum has maintained sustained growth for 5+ years. Selvadentro is positioned in one of the highest-potential corridors.</span><span class="es">Tulum ha mantenido crecimiento sostenido por m&aacute;s de 5 a&ntilde;os. Selvadentro est&aacute; en uno de los corredores de mayor potencial.</span></p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <div class="card p-8 text-center">
-        <div class="serif font-bold gold" style="font-size:2.8rem;margin-bottom:8px;">+12%</div>
+      <div class="card p-8 text-center reveal">
+        <div class="serif font-bold gold" style="font-size:2.8rem;margin-bottom:8px;">+<span data-count="12" data-suffix="%">12%</span></div>
         <div style="font-size:0.9rem;font-weight:600;color:#1A1611;margin-bottom:4px;"><span class="en">Average Annual Growth</span><span class="es">Crecimiento Anual Promedio</span></div>
         <div style="font-size:0.78rem;color:#9A8E7A;"><span class="en">Consistent appreciation over 5 years</span><span class="es">Apreciaci&oacute;n constante por 5 a&ntilde;os</span></div>
       </div>
-      <div class="card p-8 text-center">
+      <div class="card p-8 text-center reveal" style="transition-delay:0.12s;">
         <div class="serif font-bold gold" style="font-size:2.8rem;margin-bottom:8px;">Top 3</div>
         <div style="font-size:0.9rem;font-weight:600;color:#1A1611;margin-bottom:4px;"><span class="en">Investment Destination in Mexico</span><span class="es">Destino de Inversi&oacute;n en M&eacute;xico</span></div>
         <div style="font-size:0.78rem;color:#9A8E7A;"><span class="en">Among the highest-demand real estate markets</span><span class="es">Entre los mercados inmobiliarios de mayor demanda</span></div>
@@ -522,7 +540,7 @@
     <div class="gold-badge mb-5"><span class="en">Get Started</span><span class="es">Comenzar</span></div>
     <h2 class="serif mb-4" style="font-size:clamp(1.7rem,4vw,2.5rem);color:#1A1611;font-weight:700;"><span class="en">Book a Private Investor Call</span><span class="es">Reserva una Llamada Privada</span></h2>
     <p class="text-sm sm:text-base mb-8" style="color:#6B5F4E;"><span class="en">Talk directly with a senior advisor. Real numbers, real availability, no pressure.</span><span class="es">Habla directamente con un asesor senior. N&uacute;meros reales, disponibilidad real, sin presi&oacute;n.</span></p>
-    <div class="card p-6 text-left mb-6">
+    <div class="card p-6 text-left mb-6 reveal">
       <div class="space-y-3 mb-6">
         <div class="flex items-center gap-3">
           <div style="width:20px;height:20px;border-radius:50%;background:#E8F5E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -547,7 +565,7 @@
         <p style="color:#C4C0B8;font-size:0.8rem;font-family:monospace;">[ Lead form embed ]</p>
       </div>
     </div>
-    <a href="book-call.html" class="cta-primary px-9 py-4 rounded-xl text-sm sm:text-base" style="display:inline-block;">
+    <a href="book-call.html" class="cta-primary cta-pulse px-9 py-4 rounded-xl text-sm sm:text-base" style="display:inline-block;">
       <span class="en">Book a Private Investor Call &rarr;</span><span class="es">Reservar Llamada Privada &rarr;</span>
     </a>
     <p style="margin-top:20px;font-size:0.75rem;color:#9A8E7A;">
@@ -587,6 +605,13 @@
   </div>
 </footer>
 
+<!-- Mobile Sticky CTA -->
+<div class="sticky-cta">
+  <a href="book-call.html" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;">
+    <span class="en">Book a Private Investor Call &rarr;</span><span class="es">Reservar Llamada Privada &rarr;</span>
+  </a>
+</div>
+
 <script>
 document.getElementById("menu-btn").addEventListener("click", function() {
   document.getElementById("mobile-menu").classList.toggle("open");
@@ -623,6 +648,52 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+// Scroll reveal + counter animation
+(function() {
+  if (!window.IntersectionObserver) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal, .reveal-l').forEach(function(el) { io.observe(el); });
+
+  // Counter animation
+  function animateCount(el) {
+    var num = parseFloat(el.dataset.count);
+    var suf = el.dataset.suffix || '';
+    var pre = el.dataset.prefix || '';
+    var dec = parseInt(el.dataset.decimals || '0');
+    var dur = 1400, t0 = null;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      var v = num * ease;
+      el.textContent = pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf;
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = pre + (dec ? num.toFixed(dec) : num.toLocaleString()) + suf;
+    }
+    requestAnimationFrame(step);
+  }
+  var cio = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { animateCount(e.target); cio.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach(function(el) { cio.observe(el); });
+
+  // Sticky mobile CTA: show after hero scrolled past
+  var heroEnd = document.querySelector('section');
+  var stickyCta = document.querySelector('.sticky-cta');
+  if (heroEnd && stickyCta) {
+    var sio = new IntersectionObserver(function(entries) {
+      stickyCta.classList.toggle('shown', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    sio.observe(heroEnd);
+  }
+})();
 </script>
 </body>
 </html>

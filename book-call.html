@@ -21,6 +21,20 @@
     .lang-toggle { display: flex; align-items: center; border: 1.5px solid #E5DDD0; border-radius: 20px; overflow: hidden; }
     .lang-btn { padding: 4px 11px; cursor: pointer; font-size: 0.72rem; font-weight: 700; transition: all 0.2s; color: #9A8E7A; background: transparent; border: none; }
     .lang-btn.active { background: #1A1611; color: #F8F5EF; }
+    /* — Animations & Mobile Polish — */
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes pulse-cta { 0%,100%{ box-shadow:0 6px 28px rgba(196,151,58,0.22); } 50%{ box-shadow:0 6px 42px rgba(196,151,58,0.48); } }
+    .cta-pulse { animation: pulse-cta 2.8s ease-in-out infinite; }
+    .cta-pulse:hover { animation: none; }
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px max(16px, env(safe-area-inset-bottom, 10px)); background: #FFFFFF; border-top: 1px solid #E5DDD0; box-shadow: 0 -4px 20px rgba(0,0,0,0.09); transform: translateY(100%); transition: transform 0.4s cubic-bezier(.16,1,.3,1); }
+      .sticky-cta.shown { transform: translateY(0); }
+      body { padding-bottom: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
   </style>
 </head>
 <body>
@@ -40,8 +54,8 @@
 </nav>
 
 <!-- URGENCY BAR -->
-<div style="background:#1A1611;padding:9px 16px;text-align:center;">
-  <p style="font-size:0.75rem;color:rgba(245,240,230,0.85);"><strong style="color:#C4973A;">86%</strong> of the first Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> available at current price &middot; Price increases every 10 lots sold</p>
+<div style="background:#1A1611;padding:8px 16px;text-align:center;overflow:hidden;">
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><strong style="color:#C4973A;">86%</strong> of Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</p>
 </div>
 
 <main class="flex-1 py-12 md:py-20 px-5 sm:px-6">
@@ -57,7 +71,7 @@
     </div>
 
     <!-- Call details chips -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 reveal">
       <div class="stat-chip p-4 text-center rounded-xl">
         <div style="display:flex;align-items:center;justify-content:center;margin-bottom:6px;">
           <svg width="22" height="22" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -89,7 +103,7 @@
     </div>
 
     <!-- What we cover -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal" style="transition-delay:0.1s;">
       <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">What We&rsquo;ll Cover</h3>
       <div class="space-y-3">
         <div class="flex gap-3">
@@ -116,7 +130,7 @@
     </div>
 
     <!-- Calendar Embed -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal" style="transition-delay:0.15s;">
       <h3 class="serif font-semibold text-lg mb-2" style="color:#1A1611;">Choose Your Time</h3>
       <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Select a slot that works for you. Available Mon&ndash;Sat, 9:00&ndash;20:00.</p>
       <!-- =====================================================
@@ -129,7 +143,7 @@
     </div>
 
     <!-- Or contact us -->
-    <div class="card p-6 mb-8">
+    <div class="card p-6 mb-8 reveal" style="transition-delay:0.2s;">
       <h3 class="serif font-semibold text-lg mb-2" style="color:#1A1611;">Prefer to Reach Out Directly?</h3>
       <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Fill in the form below and our team will contact you within 30 minutes to confirm your call time.</p>
       <!-- =====================================================
@@ -164,6 +178,11 @@
   <p style="font-size:0.72rem;color:rgba(245,240,230,0.3);">&copy; 2026 Selvadentro Tulum &middot; <a href="index.html" style="color:rgba(196,151,58,0.5);">selvadentrotulum.com</a></p>
 </footer>
 
+<!-- Mobile Sticky CTA -->
+<div class="sticky-cta">
+  <a href="#" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});return false;" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;">Choose Your Call Time &darr;</a>
+</div>
+
 <script>
 function setLang(lang) {
   document.documentElement.lang = lang;
@@ -174,6 +193,24 @@ function setLang(lang) {
 (function() {
   var saved = localStorage.getItem("slvd_lang");
   if (saved === "es") { setLang("es"); }
+})();
+
+// Scroll reveal
+(function() {
+  if (!window.IntersectionObserver) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  // Sticky CTA
+  var header = document.querySelector('main > div > .text-center');
+  var stickyCta = document.querySelector('.sticky-cta');
+  if (header && stickyCta) {
+    var sio = new IntersectionObserver(function(entries) {
+      stickyCta.classList.toggle('shown', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    sio.observe(header);
+  }
 })();
 </script>
 </body>

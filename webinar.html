@@ -24,6 +24,20 @@
     .lang-toggle { display: flex; align-items: center; border: 1.5px solid #E5DDD0; border-radius: 20px; overflow: hidden; }
     .lang-btn { padding: 4px 11px; cursor: pointer; font-size: 0.72rem; font-weight: 700; transition: all 0.2s; color: #9A8E7A; background: transparent; border: none; }
     .lang-btn.active { background: #1A1611; color: #F8F5EF; }
+    /* — Animations & Mobile Polish — */
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes pulse-cta { 0%,100%{ box-shadow:0 6px 28px rgba(196,151,58,0.22); } 50%{ box-shadow:0 6px 42px rgba(196,151,58,0.48); } }
+    .cta-pulse { animation: pulse-cta 2.8s ease-in-out infinite; }
+    .cta-pulse:hover { animation: none; }
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px max(16px, env(safe-area-inset-bottom, 10px)); background: #FFFFFF; border-top: 1px solid #E5DDD0; box-shadow: 0 -4px 20px rgba(0,0,0,0.09); transform: translateY(100%); transition: transform 0.4s cubic-bezier(.16,1,.3,1); }
+      .sticky-cta.shown { transform: translateY(0); }
+      body { padding-bottom: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
   </style>
 </head>
 <body>
@@ -43,8 +57,8 @@
 </nav>
 
 <!-- URGENCY BAR -->
-<div style="background:#1A1611;padding:9px 16px;text-align:center;">
-  <p style="font-size:0.75rem;color:rgba(245,240,230,0.85);"><strong style="color:#C4973A;">86%</strong> of the first Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> available at current price &middot; Price increases every 10 lots sold</p>
+<div style="background:#1A1611;padding:8px 16px;text-align:center;overflow:hidden;">
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><strong style="color:#C4973A;">86%</strong> of Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</p>
 </div>
 
 <main class="flex-1 py-12 md:py-20 px-5 sm:px-6">
@@ -60,7 +74,7 @@
     </div>
 
     <!-- Event Details -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal">
       <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">Event Details</h3>
       <div class="space-y-3">
         <div class="flex items-center gap-3">
@@ -83,7 +97,7 @@
     </div>
 
     <!-- Countdown -->
-    <div class="card p-5 mb-6 text-center">
+    <div class="card p-5 mb-6 text-center reveal" style="transition-delay:0.1s;">
       <p style="font-size:0.75rem;color:#9A8E7A;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;">Webinar starts in</p>
       <div class="flex gap-3 justify-center">
         <div class="countdown-box"><div class="countdown-num" id="w-days">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">DAYS</div></div>
@@ -94,7 +108,7 @@
     </div>
 
     <!-- What You'll Learn -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal" style="transition-delay:0.15s;">
       <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">What You&rsquo;ll Learn</h3>
       <div class="space-y-3">
         <div class="flex gap-3">
@@ -121,7 +135,7 @@
     </div>
 
     <!-- Registration Form -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal" style="transition-delay:0.2s;">
       <h3 class="serif font-semibold text-lg mb-2" style="color:#1A1611;">Reserve Your Seat &mdash; Free</h3>
       <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Seats are limited. Register below to receive your Zoom link.</p>
       <!-- =====================================================
@@ -134,7 +148,7 @@
     </div>
 
     <!-- Bonus Content -->
-    <div class="card p-6 mb-8">
+    <div class="card p-6 mb-8 reveal" style="transition-delay:0.25s;">
       <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">Free Bonuses for Registrants</h3>
       <div class="space-y-4">
         <div class="flex gap-4 items-start">
@@ -159,7 +173,7 @@
     </div>
 
     <!-- Single CTA -->
-    <a href="book-call.html" class="cta-primary px-7 py-4 rounded-xl text-sm">Book a Private Investor Call &rarr;</a>
+    <a href="book-call.html" class="cta-primary cta-pulse px-7 py-4 rounded-xl text-sm" style="display:block;text-align:center;">Book a Private Investor Call &rarr;</a>
     <p style="text-align:center;font-size:0.75rem;color:#9A8E7A;margin-top:16px;">
       <a href="guide.html" style="color:#C4973A;text-decoration:none;">Download Investor Guide</a>
       &nbsp;&middot;&nbsp;
@@ -177,6 +191,11 @@
   </p>
   <p style="font-size:0.72rem;color:rgba(245,240,230,0.3);">&copy; 2026 Selvadentro Tulum &middot; <a href="index.html" style="color:rgba(196,151,58,0.5);">selvadentrotulum.com</a></p>
 </footer>
+
+<!-- Mobile Sticky CTA -->
+<div class="sticky-cta">
+  <a href="book-call.html" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;">Book a Private Investor Call &rarr;</a>
+</div>
 
 <script>
 function setLang(lang) {
@@ -204,6 +223,24 @@ function updateWebinarCountdown() {
 }
 updateWebinarCountdown();
 setInterval(updateWebinarCountdown, 1000);
+
+// Scroll reveal
+(function() {
+  if (!window.IntersectionObserver) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  // Sticky CTA after header scrolled past
+  var header = document.querySelector('main > div > div');
+  var stickyCta = document.querySelector('.sticky-cta');
+  if (header && stickyCta) {
+    var sio = new IntersectionObserver(function(entries) {
+      stickyCta.classList.toggle('shown', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    sio.observe(header);
+  }
+})();
 </script>
 </body>
 </html>

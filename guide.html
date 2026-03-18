@@ -21,6 +21,20 @@
     .lang-toggle { display: flex; align-items: center; border: 1.5px solid #E5DDD0; border-radius: 20px; overflow: hidden; }
     .lang-btn { padding: 4px 11px; cursor: pointer; font-size: 0.72rem; font-weight: 700; transition: all 0.2s; color: #9A8E7A; background: transparent; border: none; }
     .lang-btn.active { background: #1A1611; color: #F8F5EF; }
+    /* — Animations & Mobile Polish — */
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes pulse-cta { 0%,100%{ box-shadow:0 6px 28px rgba(196,151,58,0.22); } 50%{ box-shadow:0 6px 42px rgba(196,151,58,0.48); } }
+    .cta-pulse { animation: pulse-cta 2.8s ease-in-out infinite; }
+    .cta-pulse:hover { animation: none; }
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px max(16px, env(safe-area-inset-bottom, 10px)); background: #FFFFFF; border-top: 1px solid #E5DDD0; box-shadow: 0 -4px 20px rgba(0,0,0,0.09); transform: translateY(100%); transition: transform 0.4s cubic-bezier(.16,1,.3,1); }
+      .sticky-cta.shown { transform: translateY(0); }
+      body { padding-bottom: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
   </style>
 </head>
 <body>
@@ -40,8 +54,8 @@
 </nav>
 
 <!-- URGENCY BAR -->
-<div style="background:#1A1611;padding:9px 16px;text-align:center;">
-  <p style="font-size:0.75rem;color:rgba(245,240,230,0.85);"><strong style="color:#C4973A;">86%</strong> of the first Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> available at current price &middot; Price increases every 10 lots sold</p>
+<div style="background:#1A1611;padding:8px 16px;text-align:center;overflow:hidden;">
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><strong style="color:#C4973A;">86%</strong> of Enclave sold &middot; <strong style="color:#C4973A;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</p>
 </div>
 
 <main class="flex-1 py-12 md:py-20 px-5 sm:px-6">
@@ -57,7 +71,7 @@
     </div>
 
     <!-- What's Inside -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal">
       <h3 class="serif font-semibold text-lg mb-4" style="color:#1A1611;">What&rsquo;s Inside</h3>
       <div class="space-y-4">
         <div class="flex gap-4 items-start">
@@ -91,7 +105,7 @@
     </div>
 
     <!-- Key Numbers -->
-    <div class="grid grid-cols-3 gap-3 mb-6">
+    <div class="grid grid-cols-3 gap-3 mb-6 reveal" style="transition-delay:0.1s;">
       <div class="stat-chip p-4 text-center rounded-xl">
         <div class="serif font-bold gold" style="font-size:1.6rem;">42</div>
         <div style="font-size:0.68rem;color:#9A8E7A;margin-top:3px;">Pages</div>
@@ -107,7 +121,7 @@
     </div>
 
     <!-- Download Form -->
-    <div class="card p-6 mb-6">
+    <div class="card p-6 mb-6 reveal" style="transition-delay:0.15s;">
       <h3 class="serif font-semibold text-lg mb-2" style="color:#1A1611;">Get Instant Access</h3>
       <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Enter your details and the guide arrives in your inbox immediately.</p>
       <!-- =====================================================
@@ -121,7 +135,7 @@
     </div>
 
     <!-- Social Proof -->
-    <div class="card p-5 mb-8" style="background:#FBF8F3;">
+    <div class="card p-5 mb-8 reveal" style="background:#FBF8F3;transition-delay:0.2s;">
       <div class="flex items-start gap-4">
         <svg width="20" height="20" fill="none" stroke="#C4973A" stroke-width="1.5" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/></svg>
         <p style="font-size:0.82rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#1A1611;">Most investors who download the guide book a call within 72 hours.</strong> The guide answers your biggest questions before the conversation &mdash; making the call much more productive.</p>
@@ -129,7 +143,7 @@
     </div>
 
     <!-- Single CTA -->
-    <a href="book-call.html" class="cta-primary px-7 py-4 rounded-xl text-sm">Book a Private Investor Call &rarr;</a>
+    <a href="book-call.html" class="cta-primary cta-pulse px-7 py-4 rounded-xl text-sm" style="display:block;text-align:center;">Book a Private Investor Call &rarr;</a>
     <p style="text-align:center;font-size:0.75rem;color:#9A8E7A;margin-top:16px;">
       <a href="webinar.html" style="color:#C4973A;text-decoration:none;">Join the Live Webinar</a>
       &nbsp;&middot;&nbsp;
@@ -148,6 +162,11 @@
   <p style="font-size:0.72rem;color:rgba(245,240,230,0.3);">&copy; 2026 Selvadentro Tulum &middot; <a href="index.html" style="color:rgba(196,151,58,0.5);">selvadentrotulum.com</a></p>
 </footer>
 
+<!-- Mobile Sticky CTA -->
+<div class="sticky-cta">
+  <a href="book-call.html" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;">Book a Private Investor Call &rarr;</a>
+</div>
+
 <script>
 function setLang(lang) {
   document.documentElement.lang = lang;
@@ -158,6 +177,24 @@ function setLang(lang) {
 (function() {
   var saved = localStorage.getItem("slvd_lang");
   if (saved === "es") { setLang("es"); }
+})();
+
+// Scroll reveal
+(function() {
+  if (!window.IntersectionObserver) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+  // Sticky CTA
+  var header = document.querySelector('main > div > .text-center');
+  var stickyCta = document.querySelector('.sticky-cta');
+  if (header && stickyCta) {
+    var sio = new IntersectionObserver(function(entries) {
+      stickyCta.classList.toggle('shown', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    sio.observe(header);
+  }
 })();
 </script>
 </body>
