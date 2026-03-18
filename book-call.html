@@ -36,6 +36,19 @@
     }
     @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
   </style>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','680727997874671');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=680727997874671&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
 </head>
 <body>
 <nav style="background:#FFFFFF;border-bottom:1px solid #E5DDD0;">
@@ -71,7 +84,7 @@
     <div class="grid grid-cols-2 gap-3 mb-6 reveal">
 
       <!-- Option A: Book a Call -->
-      <button id="tab-book" onclick="showTab('book')"
+      <button id="tab-book" onclick="showTab('book');if(typeof fbq!=='undefined')fbq('track','Schedule');"
         style="padding:20px 16px;border-radius:14px;border:2px solid #CF8543;background:#465241;cursor:pointer;transition:all 0.2s;text-align:center;">
         <div style="display:flex;align-items:center;justify-content:center;margin-bottom:8px;">
           <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#CF8543,#A86A30);display:flex;align-items:center;justify-content:center;">
@@ -212,6 +225,22 @@ function showTab(tab) {
   tabAsap.querySelector('div:last-child').style.color = isBook ? '#9A8E7A' : 'rgba(207,133,67,0.85)';
 }
 
+
+// FB Pixel — distinguish callback form (Lead) vs calendar booking (Schedule)
+window.addEventListener('message', function(e) {
+  if (!e.data) return;
+  var d = (typeof e.data === 'string') ? e.data : JSON.stringify(e.data);
+  if (d.indexOf('form-submitted') !== -1 || d.indexOf('formSubmitted') !== -1) {
+    if (typeof fbq === 'undefined') return;
+    // Calendar widget origin contains leadconnectorhq booking
+    var src = (e.origin || '');
+    if (src.indexOf('booking') !== -1) {
+      fbq('track', 'Schedule');
+    } else {
+      fbq('track', 'Lead');
+    }
+  }
+});
 // Scroll reveal
 (function() {
   if (!window.IntersectionObserver) return;
