@@ -66,6 +66,26 @@
       body { padding-bottom: 80px; }
     }
     @media (prefers-reduced-motion: reduce) { .reveal, .reveal-l { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
+    /* Hero layout */
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 420px; } }
+    /* Gallery bento grid */
+    .gallery-bento { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 200px; gap: 12px; }
+    @media (min-width: 768px) { .gallery-bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 224px; } }
+    .gallery-featured { grid-column: span 2; grid-row: span 2; }
+    @media (max-width: 767px) { .gallery-featured { grid-column: span 1 !important; grid-row: span 1 !important; } }
+    .gallery-item { position: relative; border-radius: 14px; overflow: hidden; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .gallery-item:hover img { transform: scale(1.07); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.15) 45%, transparent 100%); opacity: 0; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 14px; pointer-events: none; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-expand { position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+    .gallery-item:hover .gallery-expand { opacity: 1; }
+    /* Lightbox */
+    .lightbox-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.96); align-items: center; justify-content: center; }
+    .lightbox-overlay.lb-active { display: flex; }
+    .lb-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; background: rgba(255,255,255,0.12); border: none; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; color: white; z-index: 10; }
+    .lb-nav-btn:hover { background: rgba(255,255,255,0.24); }
   </style>
   <!-- Meta Pixel -->
   <script>
@@ -135,41 +155,179 @@
 </div>
 
 <!-- HERO -->
-<section style="background:#FFFFFF;padding:64px 0 56px;">
-  <div class="max-w-5xl mx-auto px-5 sm:px-6 text-center">
-    <div class="gold-badge mb-6">Tulum, Quintana Roo &middot; <span class="en">Phase 1 &mdash; 8 Lots Remaining</span><span class="es">Fase 1 &mdash; 8 Lotes Restantes</span></div>
-    <h1 class="serif mb-5" style="font-size:clamp(2rem,6vw,3.6rem);line-height:1.15;color:#465241;font-weight:700;">
-      <span class="en">Invest in Tulum Land<br/><em style="color:#CF8543;font-style:normal;">That Generates Real Value</em></span>
-      <span class="es">Invierte en Tierra en Tulum<br/><em style="color:#CF8543;font-style:normal;">Que Genera Valor Real</em></span>
-    </h1>
-    <p class="text-base sm:text-lg mb-8 max-w-2xl mx-auto" style="color:#6B5F4E;line-height:1.7;">
-      <span class="en">Residential lots from 4,300 sqft in a low-density development with 9 natural cenotes. 48-month financing, zero interest. Confirmed price schedule across 4 phases.</span>
-      <span class="es">Lotes residenciales desde 400&nbsp;m&sup2; en un desarrollo de baja densidad con 9 cenotes naturales. Financiamiento a 48 meses sin intereses. Calendario de precios confirmado en 4 fases.</span>
-    </p>
-    <div class="flex flex-wrap justify-center gap-3 mb-8">
-      <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold"><span data-count="86" data-suffix="%">86%</span></div>
-        <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">First Enclave Sold</span><span class="es">Primer Enclave Vendido</span></div>
-      </div>
-      <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold"><span data-count="9">9</span></div>
-        <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Natural Cenotes</span><span class="es">Cenotes Naturales</span></div>
-      </div>
-      <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold en">4,300 sqft</div>
-        <div class="serif text-2xl font-bold gold es">400 m&sup2;</div>
-        <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Min. Lot Size</span><span class="es">Tama&ntilde;o M&iacute;n.</span></div>
-      </div>
-      <div class="stat-chip px-5 py-3 text-center">
-        <div class="serif text-2xl font-bold gold">+<span data-count="134" data-suffix="%">134%</span></div>
-        <div style="font-size:0.7rem;color:#9A8E7A;margin-top:2px;"><span class="en">Phase 1&rarr;4 Total Gain</span><span class="es">Ganancia Total Fase 1&rarr;4</span></div>
+<section id="hero" style="position:relative;min-height:92vh;overflow:hidden;display:flex;flex-direction:column;">
+  <!-- Background image -->
+  <div style="position:absolute;inset:0;">
+    <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/2.-AEREO_CASADECENOTES_V2-scaled.jpg" alt="Selvadentro Tulum aerial view" style="width:100%;height:100%;object-fit:cover;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,42,22,0.93) 0%,rgba(22,42,22,0.78) 45%,rgba(22,42,22,0.42) 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,15,7,0.62) 0%,transparent 55%);"></div>
+  </div>
+  <!-- Content -->
+  <div style="position:relative;z-index:10;flex:1;display:flex;align-items:center;">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6 w-full" style="padding-top:56px;padding-bottom:56px;">
+      <div class="hero-grid">
+        <!-- LEFT: Text -->
+        <div class="reveal-l">
+          <!-- Badge -->
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(207,133,67,0.15);border:1px solid rgba(207,133,67,0.35);border-radius:20px;padding:5px 16px;margin-bottom:22px;">
+            <span style="width:7px;height:7px;background:#CF8543;border-radius:50%;animation:pulse-sec 1.5s ease-in-out infinite;display:inline-block;flex-shrink:0;"></span>
+            <span style="font-size:0.7rem;color:#CF8543;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;" class="en">Tulum, Q. Roo &middot; Phase 1 &mdash; 8 Lots Remaining</span>
+            <span style="font-size:0.7rem;color:#CF8543;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;" class="es">Tulum, Q. Roo &middot; Fase 1 &mdash; 8 Lotes Restantes</span>
+          </div>
+          <!-- Headline -->
+          <h1 class="serif" style="font-size:clamp(2.1rem,5.5vw,3.8rem);line-height:1.12;color:#FFFFFF;font-weight:700;margin-bottom:18px;">
+            <span class="en">Invest in Tulum Land<br/><em style="color:#CF8543;font-style:normal;">That Generates Real Value</em></span>
+            <span class="es">Invierte en Tierra en Tulum<br/><em style="color:#CF8543;font-style:normal;">Que Genera Valor Real</em></span>
+          </h1>
+          <!-- Subtext -->
+          <p style="font-size:0.98rem;color:rgba(255,255,255,0.78);line-height:1.7;margin-bottom:26px;max-width:510px;">
+            <span class="en">Residential lots from 4,300 sqft in a low-density development with 9 natural cenotes. 48-month financing, zero interest. Confirmed price schedule across 4 phases.</span>
+            <span class="es">Lotes residenciales desde 400&nbsp;m&sup2; en un desarrollo de baja densidad con 9 cenotes naturales. Financiamiento a 48 meses sin intereses.</span>
+          </p>
+          <!-- 3 Feature bullets -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;">
+            <div style="display:flex;align-items:flex-start;gap:9px;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="16" height="16" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
+              </div>
+              <div>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="en">Low Density</p>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="es">Baja Densidad</p>
+                <p style="font-size:0.67rem;color:rgba(255,255,255,0.48);margin:0;" class="en">Only 35% buildable</p>
+                <p style="font-size:0.67rem;color:rgba(255,255,255,0.48);margin:0;" class="es">Solo 35% construible</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:9px;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="16" height="16" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+              </div>
+              <div>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="en">Real Appreciation</p>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="es">Plusval&iacute;a Real</p>
+                <p style="font-size:0.67rem;color:rgba(255,255,255,0.48);margin:0;">+134% Phase 1&rarr;4</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:9px;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <svg width="16" height="16" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              </div>
+              <div>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="en">Legal Security</p>
+                <p style="font-size:0.8rem;font-weight:600;color:#FFFFFF;margin:0 0 2px;" class="es">Seguridad Jur&iacute;dica</p>
+                <p style="font-size:0.67rem;color:rgba(255,255,255,0.48);margin:0;" class="en">Immediate deed</p>
+                <p style="font-size:0.67rem;color:rgba(255,255,255,0.48);margin:0;" class="es">Escritura inmediata</p>
+              </div>
+            </div>
+          </div>
+          <!-- CTAs -->
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
+            <a href="book-call.html" class="cta-primary cta-pulse px-8 py-4 rounded-xl text-sm" style="display:inline-block;">
+              <span class="en">Book a Private Investor Call &rarr;</span>
+              <span class="es">Reservar Llamada Privada &rarr;</span>
+            </a>
+            <a href="webinar.html" style="display:inline-block;padding:14px 22px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.28);color:rgba(255,255,255,0.88);font-size:0.875rem;font-weight:500;text-decoration:none;transition:all 0.3s;background:rgba(255,255,255,0.06);" onmouseover="this.style.background='rgba(255,255,255,0.13)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
+              <span class="en">Watch Free Webinar</span>
+              <span class="es">Ver Webinar Gratuito</span>
+            </a>
+          </div>
+          <!-- Trust row -->
+          <div style="display:flex;align-items:center;gap:18px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.12);">
+            <div style="text-align:center;">
+              <p class="serif" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;"><span data-count="86" data-suffix="%">86%</span></p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Enclave Sold</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Enclave Vendido</p>
+            </div>
+            <div style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
+            <div style="text-align:center;">
+              <p class="serif" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">9</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Natural Cenotes</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Cenotes Naturales</p>
+            </div>
+            <div style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
+            <div style="text-align:center;">
+              <p class="serif" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">+134%</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Phase 1&rarr;4 Gain</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Ganancia F1&rarr;4</p>
+            </div>
+            <div style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
+            <div style="text-align:center;">
+              <p class="serif" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">+22%</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Phase 2 Jump</p>
+              <p style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Salto Fase 2</p>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: Investment Card -->
+        <div class="reveal" style="align-self:center;">
+          <div style="background:#FFFFFF;border-radius:20px;padding:28px 26px 24px;box-shadow:0 24px 64px rgba(0,0,0,0.32);">
+            <h3 class="serif" style="font-size:1.05rem;font-weight:700;color:#465241;margin:0 0 18px;">
+              <span class="en">Investment Details</span>
+              <span class="es">Datos de Inversi&oacute;n</span>
+            </h3>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0EBE3;gap:8px;">
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="en">Price per sqft</span>
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="es">Precio por m&sup2;</span>
+                <span class="serif" style="font-size:1rem;font-weight:700;color:#465241;white-space:nowrap;">
+                  <span class="en">$15.50 USD</span>
+                  <span class="es">$3,340 MXN</span>
+                </span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0EBE3;gap:8px;">
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="en">Phase 2 increase</span>
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="es">Aumento Fase 2</span>
+                <span class="serif" style="font-size:1rem;font-weight:700;color:#CF8543;">+22%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0EBE3;gap:8px;">
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="en">Total Phase 1&rarr;4 gain</span>
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="es">Ganancia total F1&rarr;4</span>
+                <span class="serif" style="font-size:1rem;font-weight:700;color:#2A7A0A;">+134%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F0EBE3;gap:8px;">
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="en">Min. down payment</span>
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="es">Enganche m&iacute;nimo</span>
+                <span class="serif" style="font-size:1rem;font-weight:700;color:#465241;">20%</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:8px;">
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="en">Financing</span>
+                <span style="font-size:0.8rem;color:#6B5F4E;" class="es">Financiamiento</span>
+                <span class="serif" style="font-size:1rem;font-weight:700;color:#465241;">
+                  <span class="en">48 mo. &middot; 0% interest</span>
+                  <span class="es">48 meses &middot; 0%</span>
+                </span>
+              </div>
+            </div>
+            <div style="margin-top:14px;padding:11px 14px;border-radius:10px;background:rgba(207,133,67,0.07);border:1px solid rgba(207,133,67,0.22);">
+              <p style="font-size:0.72rem;color:#6B5F4E;line-height:1.5;margin:0;">
+                <span class="en"><strong style="color:#465241;">Note:</strong> Phase 1 prices confirmed &mdash; only 8 lots remain at this price. +1% increase every 10 lots sold.</span>
+                <span class="es"><strong style="color:#465241;">Nota:</strong> Precios Fase 1 confirmados &mdash; solo 8 lotes restantes. +1% aumento cada 10 lotes.</span>
+              </p>
+            </div>
+            <a href="book-call.html" class="cta-primary px-6 py-3 rounded-xl text-sm" style="display:block;text-align:center;margin-top:14px;">
+              <span class="en">Get Full Investment Details &rarr;</span>
+              <span class="es">Obtener Detalles Completos &rarr;</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    <a href="book-call.html" class="cta-primary cta-pulse px-9 py-4 rounded-xl text-sm sm:text-base" style="display:inline-block;">
-      <span class="en">Book a Private Investor Call &rarr;</span>
-      <span class="es">Reservar una Llamada Privada &rarr;</span>
-    </a>
-    <p style="font-size:0.72rem;color:#9A8E7A;margin-top:12px;"><span class="en">Response in under 30 minutes &middot; Mon&ndash;Sat 9:00&ndash;20:00</span><span class="es">Respuesta en menos de 30 min &middot; Lun&ndash;S&aacute;b 9:00&ndash;20:00</span></p>
+  </div>
+  <!-- Bottom bar -->
+  <div style="position:relative;z-index:10;background:rgba(207,133,67,0.1);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,0.08);">
+    <div class="max-w-6xl mx-auto px-5" style="padding:12px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 28px;">
+      <span style="display:flex;align-items:center;gap:7px;font-size:0.76rem;color:rgba(255,255,255,0.78);">
+        <svg width="13" height="13" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        <span class="en">Public Deed Guaranteed</span><span class="es">Escritura P&uacute;blica Garantizada</span>
+      </span>
+      <span style="display:flex;align-items:center;gap:7px;font-size:0.76rem;color:rgba(255,255,255,0.78);">
+        <svg width="13" height="13" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+        <span class="en">Confirmed Price Schedule &mdash; All 4 Phases</span><span class="es">Calendario Confirmado &mdash; 4 Fases</span>
+      </span>
+      <span style="display:flex;align-items:center;gap:7px;font-size:0.76rem;color:rgba(255,255,255,0.78);">
+        <svg width="13" height="13" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        <span class="en">Tulum &mdash; High Appreciation Zone</span><span class="es">Tulum &mdash; Zona de Alta Plusval&iacute;a</span>
+      </span>
+    </div>
   </div>
 </section>
 
@@ -385,50 +543,84 @@
 <!-- AMENITIES -->
 <section style="background:#FFFFFF;padding:72px 0;">
   <div class="max-w-5xl mx-auto px-5 sm:px-6">
-    <div class="text-center mb-10">
+    <div class="text-center mb-10 reveal">
       <h2 class="serif mb-3" style="font-size:clamp(1.7rem,4vw,2.5rem);color:#465241;font-weight:700;"><span class="en">15+ Exclusive Amenities</span><span class="es">M&aacute;s de 15 Amenidades Exclusivas</span></h2>
-      <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">Each space designed to coexist with the jungle. Hover to explore.</span><span class="es">Cada espacio dise&ntilde;ado para coexistir con la selva.</span></p>
+      <p class="text-sm sm:text-base" style="color:#6B5F4E;"><span class="en">Each space designed to coexist with the jungle. Click any photo to explore.</span><span class="es">Cada espacio dise&ntilde;ado para coexistir con la selva. Haz clic para explorar.</span></p>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 reveal">
-      <div class="amenity-card">
+    <div class="gallery-bento reveal">
+      <div class="gallery-item gallery-featured" onclick="openLightbox(0)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/1.CENOTE_MIRADOR-scaled.jpg" alt="Cenote Mirador" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Cenote Mirador</span><span class="es">Cenote Mirador</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.9rem;font-weight:700;color:#FFFFFF;margin:0 0 3px;font-family:'Cardo',serif;"><span class="en">Cenote Mirador</span><span class="es">Cenote Mirador</span></h4>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.75);margin:0;" class="en">Natural cenote with panoramic jungle views</p>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.75);margin:0;" class="es">Cenote natural con vistas panor&aacute;micas</p>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(1)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/2.-AEREO_CASADECENOTES_V2-scaled.jpg" alt="Casa de los Cenotes" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Casa de los Cenotes</span><span class="es">Casa de los Cenotes</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Casa de los Cenotes</span><span class="es">Casa de los Cenotes</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(2)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/3.SPA_-scaled.jpg" alt="Spa &amp; Wellness" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Spa &amp; Wellness</span><span class="es">Spa y Bienestar</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Spa &amp; Wellness</span><span class="es">Spa y Bienestar</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(3)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/4.-MIRADOR-02-scaled.jpg" alt="Mirador" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Lookout Tower</span><span class="es">Torre Mirador</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Lookout Tower</span><span class="es">Torre Mirador</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(4)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/5.JUNGLE-BAR-01-scaled.jpg" alt="Jungle Bar" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Jungle Bar</span><span class="es">Jungle Bar</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Jungle Bar</span><span class="es">Jungle Bar</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item gallery-featured" onclick="openLightbox(5)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/6.-PABELLON-HOLISTICO-scaled.jpg" alt="Holistic Pavilion" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Holistic Pavilion</span><span class="es">Pab. Hol&iacute;stico</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.9rem;font-weight:700;color:#FFFFFF;margin:0 0 3px;font-family:'Cardo',serif;"><span class="en">Holistic Pavilion</span><span class="es">Pab. Hol&iacute;stico</span></h4>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.75);margin:0;" class="en">Yoga, meditation &amp; wellness space</p>
+          <p style="font-size:0.72rem;color:rgba(255,255,255,0.75);margin:0;" class="es">Espacio de yoga, meditaci&oacute;n y bienestar</p>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(6)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/7.-JUNGLE-GYM-01-scaled.jpg" alt="Jungle Gym" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Jungle Gym</span><span class="es">Jungle Gym</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Jungle Gym</span><span class="es">Jungle Gym</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
-        <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/8.AEREO-JUNGLE-COURTS-scaled.jpg" alt="Padel Courts" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Padel Courts</span><span class="es">Canchas P&aacute;del</span></div></div>
+      <div class="gallery-item" onclick="openLightbox(7)">
+        <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/8.AEREO-JUNGLE-COURTS-scaled.jpg" alt="Sport Courts" loading="lazy"/>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Sport Courts</span><span class="es">Canchas Deportivas</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(8)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2024/11/kidsJungle-scaled.jpg" alt="Kids Jungle" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Kids Jungle</span><span class="es">Selva Infantil</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Kids Jungle</span><span class="es">Selva Infantil</span></h4>
+        </div>
       </div>
-      <div class="amenity-card">
+      <div class="gallery-item" onclick="openLightbox(9)">
         <img src="https://selvadentrotulum.com/wp-content/uploads/2024/11/petsJungle-scaled.jpg" alt="Pets Jungle" loading="lazy"/>
-        <div class="amenity-base"><div class="amenity-name"><span class="en">Pets Jungle</span><span class="es">Selva para Mascotas</span></div></div>
+        <div class="gallery-expand"><svg width="14" height="14" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg></div>
+        <div class="gallery-overlay">
+          <h4 style="font-size:0.82rem;font-weight:700;color:#FFFFFF;margin:0;font-family:'Cardo',serif;"><span class="en">Pets Jungle</span><span class="es">Selva para Mascotas</span></h4>
+        </div>
       </div>
     </div>
   </div>
@@ -723,6 +915,79 @@ window.addEventListener('message', function(e) {
     sio.observe(heroEnd);
   }
 })();
+
+// Gallery lightbox
+var lbData = [
+  { en: 'Cenote Mirador', es: 'Cenote Mirador', edesc: 'Natural cenote with panoramic jungle views', esdesc: 'Cenote natural con vistas panor\u00e1micas', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/1.CENOTE_MIRADOR-scaled.jpg' },
+  { en: 'Casa de los Cenotes', es: 'Casa de los Cenotes', edesc: 'Aerial view of the cenote club house', esdesc: 'Vista a\u00e9rea de la casa de los cenotes', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/2.-AEREO_CASADECENOTES_V2-scaled.jpg' },
+  { en: 'Spa & Wellness', es: 'Spa y Bienestar', edesc: 'Spa and wellness center', esdesc: 'Centro de spa y bienestar', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/3.SPA_-scaled.jpg' },
+  { en: 'Lookout Tower', es: 'Torre Mirador', edesc: 'Panoramic views of the jungle canopy', esdesc: 'Vistas panor\u00e1micas del dosel selvático', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/4.-MIRADOR-02-scaled.jpg' },
+  { en: 'Jungle Bar', es: 'Jungle Bar', edesc: 'Bar integrated into the tropical vegetation', esdesc: 'Bar integrado en la vegetación tropical', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/5.JUNGLE-BAR-01-scaled.jpg' },
+  { en: 'Holistic Pavilion', es: 'Pabellón Holístico', edesc: 'Yoga, meditation and wellness space', esdesc: 'Espacio de yoga, meditación y bienestar', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/6.-PABELLON-HOLISTICO-scaled.jpg' },
+  { en: 'Jungle Gym', es: 'Jungle Gym', edesc: 'Open-air gym surrounded by the jungle', esdesc: 'Gimnasio al aire libre rodeado de selva', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/7.-JUNGLE-GYM-01-scaled.jpg' },
+  { en: 'Sport Courts', es: 'Canchas Deportivas', edesc: 'Sport courts amid the nature', esdesc: 'Canchas deportivas en medio de la naturaleza', img: 'https://selvadentrotulum.com/wp-content/uploads/2025/07/8.AEREO-JUNGLE-COURTS-scaled.jpg' },
+  { en: 'Kids Jungle', es: 'Selva Infantil', edesc: 'Play area designed for children', esdesc: '\u00c1rea de juegos para los m\u00e1s peque\u00f1os', img: 'https://selvadentrotulum.com/wp-content/uploads/2024/11/kidsJungle-scaled.jpg' },
+  { en: 'Pets Jungle', es: 'Selva para Mascotas', edesc: 'Pet-friendly jungle area', esdesc: '\u00c1rea de selva pet-friendly', img: 'https://selvadentrotulum.com/wp-content/uploads/2024/11/petsJungle-scaled.jpg' }
+];
+var lbCurrent = 0;
+function openLightbox(idx) {
+  lbCurrent = idx;
+  lbRender();
+  document.getElementById('lightbox').classList.add('lb-active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('lb-active');
+  document.body.style.overflow = '';
+}
+function lbBackdropClose(e) { if (e.target === document.getElementById('lightbox')) closeLightbox(); }
+function lbNext(e) { e.stopPropagation(); lbCurrent = (lbCurrent + 1) % lbData.length; lbRender(); }
+function lbPrev(e) { e.stopPropagation(); lbCurrent = (lbCurrent - 1 + lbData.length) % lbData.length; lbRender(); }
+function lbRender() {
+  var d = lbData[lbCurrent];
+  var lang = document.documentElement.lang === 'es' ? 'es' : 'en';
+  document.getElementById('lb-img').src = d.img;
+  document.getElementById('lb-img').alt = d[lang];
+  document.getElementById('lb-title').textContent = d[lang];
+  document.getElementById('lb-desc').textContent = d[lang + 'desc'] || '';
+  var dots = document.getElementById('lb-dots');
+  dots.innerHTML = '';
+  lbData.forEach(function(_, i) {
+    var dot = document.createElement('button');
+    dot.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:' + (i === lbCurrent ? '#FFFFFF' : 'rgba(255,255,255,0.3)') + ';';
+    dot.onclick = function(e) { e.stopPropagation(); lbCurrent = i; lbRender(); };
+    dots.appendChild(dot);
+  });
+}
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('lb-active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') { lbCurrent = (lbCurrent + 1) % lbData.length; lbRender(); }
+  if (e.key === 'ArrowLeft') { lbCurrent = (lbCurrent - 1 + lbData.length) % lbData.length; lbRender(); }
+});
+
 </script>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox-overlay" onclick="lbBackdropClose(event)">
+  <button class="lb-nav-btn" style="left:16px;" onclick="lbPrev(event)" aria-label="Previous">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/></svg>
+  </button>
+  <button class="lb-nav-btn" style="right:16px;" onclick="lbNext(event)" aria-label="Next">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+  </button>
+  <button onclick="closeLightbox()" style="position:absolute;top:16px;right:16px;width:44px;height:44px;background:rgba(255,255,255,0.12);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;z-index:10;" onmouseover="this.style.background='rgba(255,255,255,0.22)'" onmouseout="this.style.background='rgba(255,255,255,0.12)'" aria-label="Close">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+  <div id="lb-inner" style="max-width:900px;width:90vw;padding:0 60px;" onclick="event.stopPropagation()">
+    <img id="lb-img" src="" alt="" style="width:100%;max-height:72vh;object-fit:contain;border-radius:10px;display:block;"/>
+    <div style="text-align:center;margin-top:14px;">
+      <h4 id="lb-title" style="font-family:'Cardo',serif;font-size:1.1rem;font-weight:700;color:#FFFFFF;margin:0 0 4px;"></h4>
+      <p id="lb-desc" style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin:0;"></p>
+    </div>
+  </div>
+  <div id="lb-dots" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:6px;"></div>
+</div>
+
 </body>
 </html>
