@@ -110,11 +110,16 @@
       section { padding-top: 44px !important; padding-bottom: 44px !important; }
       /* Data strip: smaller font so $15.50/sqft fits in 2-col */
       .data-num { font-size: clamp(1.1rem, 3.8vw, 1.7rem) !important; }
+      /* Hide investment card in hero on mobile — data duplicated below */
+      .hero-invest-card { display: none !important; }
+      /* Masterplan image: reduce height on mobile */
+      .masterplan-img { max-height: 240px !important; }
     }
     /* Gallery: always show name label on touch screens */
     @media (hover: none) {
       .gallery-overlay { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%); }
       .gallery-expand { display: none !important; }
+      .track-card .proj-overlay { opacity: 1 !important; }
     }
     /* Lightbox nav on mobile: reposition for thumb reach */
     @media (max-width: 639px) {
@@ -267,31 +272,31 @@
           <div class="hero-trust" style="display:flex;align-items:center;gap:18px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.12);">
             <div style="text-align:center;">
               <p class="serif hero-trust-num" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;"><span data-count="86" data-suffix="%">86%</span></p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Enclave Sold</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Enclave Vendido</p>
+              <p class="hero-trust-label en" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Enclave Sold</p>
+              <p class="hero-trust-label es" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Enclave Vendido</p>
             </div>
             <div class="hero-trust-div" style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
             <div style="text-align:center;">
               <p class="serif hero-trust-num" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">9</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Natural Cenotes</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Cenotes Naturales</p>
+              <p class="hero-trust-label en" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Natural Cenotes</p>
+              <p class="hero-trust-label es" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Cenotes Naturales</p>
             </div>
             <div class="hero-trust-div" style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
             <div style="text-align:center;">
               <p class="serif hero-trust-num" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">+134%</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Phase 1&rarr;4 Gain</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Ganancia F1&rarr;4</p>
+              <p class="hero-trust-label en" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Phase 1&rarr;4 Gain</p>
+              <p class="hero-trust-label es" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Ganancia F1&rarr;4</p>
             </div>
             <div class="hero-trust-div" style="width:1px;height:36px;background:rgba(255,255,255,0.14);flex-shrink:0;"></div>
             <div style="text-align:center;">
               <p class="serif hero-trust-num" style="font-size:1.55rem;font-weight:700;color:#CF8543;margin:0;">+22%</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="en">Phase 2 Jump</p>
-              <p class="hero-trust-label" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;" class="es">Salto Fase 2</p>
+              <p class="hero-trust-label en" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Phase 2 Jump</p>
+              <p class="hero-trust-label es" style="font-size:0.6rem;color:rgba(255,255,255,0.43);margin:3px 0 0;">Salto Fase 2</p>
             </div>
           </div>
         </div>
         <!-- RIGHT: Investment Card -->
-        <div class="reveal" style="align-self:center;">
+        <div class="reveal hero-invest-card" style="align-self:center;">
           <div style="background:#FFFFFF;border-radius:20px;padding:28px 26px 24px;box-shadow:0 24px 64px rgba(0,0,0,0.32);">
             <h3 class="serif" style="font-size:1.05rem;font-weight:700;color:#465241;margin:0 0 18px;">
               <span class="en">Investment Details</span>
@@ -730,7 +735,7 @@
     <!-- Selvadentro Master Plan -->
     <div class="card reveal track-card mb-6" style="overflow:hidden;padding:0;">
       <div style="position:relative;overflow:hidden;">
-        <img src="selvadentro-mp-main (1).jpg" alt="Selvadentro Master Plan" class="proj-img" style="width:100%;display:block;max-height:460px;object-fit:cover;object-position:center top;"/>
+        <img src="selvadentro-mp-main (1).jpg" alt="Selvadentro Master Plan" class="proj-img masterplan-img" style="width:100%;display:block;max-height:460px;object-fit:cover;object-position:center top;"/>
         <div class="proj-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,42,22,0.88) 0%,rgba(22,42,22,0.1) 45%,transparent 100%);pointer-events:none;display:flex;align-items:flex-end;padding:20px 24px;">
           <div>
             <p style="font-size:0.62rem;color:rgba(207,133,67,0.9);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin:0 0 4px;"><span class="en">Official Master Plan</span><span class="es">Plan Maestro Oficial</span></p>
@@ -848,7 +853,7 @@
 <footer style="background:#465241;padding:44px 24px 36px;">
   <div class="max-w-5xl mx-auto text-center">
     <div class="flex items-center justify-center mb-5">
-      <img src="Selvadentro Logo.png" alt="Selvadentro Tulum" style="height:44px;width:auto;opacity:0.9;"/>
+      <img src="Selvadentro Logo.png" alt="Selvadentro Tulum" style="height:44px;width:auto;max-width:200px;opacity:0.9;"/>
     </div>
     <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-5">
       <a href="guide.html" style="color:rgba(245,240,230,0.45);font-size:0.78rem;"><span class="en">Investor Guide</span><span class="es">Gu&iacute;a del Inversionista</span></a>
