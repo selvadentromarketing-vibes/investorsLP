@@ -8,13 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://selvadentrotulum.com"/>
-  <link rel="preconnect" href="https://cdn.tailwindcss.com"/>
-  <!-- Preload LCP hero image so browser fetches it immediately -->
-  <link rel="preload" as="image" href="https://selvadentrotulum.com/wp-content/uploads/2025/07/2.-AEREO_CASADECENOTES_V2-scaled.jpg" fetchpriority="high"/>
+  <!-- Preload LCP hero image (served locally from Netlify CDN) -->
+  <link rel="preload" as="image" href="hero-bg-opt.jpg" imagesrcset="hero-bg-mobile.jpg 800w, hero-bg-opt.jpg 1400w" imagesizes="100vw" fetchpriority="high"/>
   <!-- Google Fonts: non-blocking via preload swap trick -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&family=Lexend:wght@300;400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&family=Lexend:wght@300;400&display=swap" rel="stylesheet"/></noscript>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tailwind.css"/>
   <style>
     * { box-sizing: border-box; }
     body { background: #F8F5EF; color: #465241; font-family: "Work Sans", sans-serif; min-height: 100vh; }
@@ -196,7 +195,7 @@
 <section id="hero" style="position:relative;min-height:92vh;overflow:hidden;display:flex;flex-direction:column;">
   <!-- Background image -->
   <div style="position:absolute;inset:0;">
-    <img src="https://selvadentrotulum.com/wp-content/uploads/2025/07/2.-AEREO_CASADECENOTES_V2-scaled.jpg" alt="Selvadentro Tulum aerial view" fetchpriority="high" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;"/>
+    <img src="hero-bg-opt.jpg" srcset="hero-bg-mobile.jpg 800w, hero-bg-opt.jpg 1400w" sizes="100vw" alt="Selvadentro Tulum aerial view" fetchpriority="high" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;"/>
     <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,42,22,0.93) 0%,rgba(22,42,22,0.78) 45%,rgba(22,42,22,0.42) 100%);"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,15,7,0.62) 0%,transparent 55%);"></div>
   </div>
