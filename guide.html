@@ -35,6 +35,15 @@
       body { padding-bottom: 80px; }
     }
     @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
+
+    /* Mobile touch improvements */
+    @media (max-width: 639px) {
+      /* Ensure tap targets are large enough */
+      a, button { min-height: 44px; }
+      nav a, nav button { min-height: auto; }
+      /* Tighten main padding on small screens */
+      main { padding-left: 16px !important; padding-right: 16px !important; }
+    }
   </style>
   <!-- Meta Pixel -->
   <script>
@@ -117,15 +126,15 @@
     <!-- Key Numbers -->
     <div class="grid grid-cols-3 gap-3 mb-6 reveal" style="transition-delay:0.1s;">
       <div class="stat-chip p-4 text-center rounded-xl">
-        <div class="serif font-bold gold" style="font-size:1.6rem;">42</div>
+        <div class="serif font-bold gold" style="font-size:clamp(1.1rem,4vw,1.6rem);">42</div>
         <div style="font-size:0.68rem;color:#9A8E7A;margin-top:3px;">Pages</div>
       </div>
       <div class="stat-chip p-4 text-center rounded-xl">
-        <div class="serif font-bold gold" style="font-size:1.6rem;">+134%</div>
+        <div class="serif font-bold gold" style="font-size:clamp(1.1rem,4vw,1.6rem);">+134%</div>
         <div style="font-size:0.68rem;color:#9A8E7A;margin-top:3px;">Phase 1&rarr;4</div>
       </div>
       <div class="stat-chip p-4 text-center rounded-xl">
-        <div class="serif font-bold gold" style="font-size:1.6rem;">Free</div>
+        <div class="serif font-bold gold" style="font-size:clamp(1.1rem,4vw,1.6rem);">Free</div>
         <div style="font-size:0.68rem;color:#9A8E7A;margin-top:3px;">No cost</div>
       </div>
     </div>

@@ -35,6 +35,15 @@
       body { padding-bottom: 80px; }
     }
     @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse { animation: none; } }
+
+    /* Mobile touch improvements */
+    @media (max-width: 639px) {
+      /* Ensure tap targets are large enough */
+      a, button { min-height: 44px; }
+      nav a, nav button { min-height: auto; }
+      /* Tighten main padding on small screens */
+      main { padding-left: 16px !important; padding-right: 16px !important; }
+    }
   </style>
   <!-- Meta Pixel -->
   <script>
