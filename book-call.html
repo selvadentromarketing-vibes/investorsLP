@@ -100,7 +100,7 @@
     <div class="tab-grid grid grid-cols-2 gap-3 mb-6 reveal">
 
       <!-- Option A: Book a Call -->
-      <button id="tab-book" onclick="showTab('book');if(typeof fbq!=='undefined')fbq('track','Schedule');"
+      <button id="tab-book" onclick="showTab('book');"
         style="padding:20px 16px;border-radius:14px;border:2px solid #CF8543;background:#465241;cursor:pointer;transition:all 0.2s;text-align:center;">
         <div style="display:flex;align-items:center;justify-content:center;margin-bottom:8px;">
           <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#CF8543,#A86A30);display:flex;align-items:center;justify-content:center;">
@@ -242,21 +242,6 @@ function showTab(tab) {
 }
 
 
-// FB Pixel — distinguish callback form (Lead) vs calendar booking (Schedule)
-window.addEventListener('message', function(e) {
-  if (!e.data) return;
-  var d = (typeof e.data === 'string') ? e.data : JSON.stringify(e.data);
-  if (d.indexOf('form-submitted') !== -1 || d.indexOf('formSubmitted') !== -1) {
-    if (typeof fbq === 'undefined') return;
-    // Calendar widget origin contains leadconnectorhq booking
-    var src = (e.origin || '');
-    if (src.indexOf('booking') !== -1) {
-      fbq('track', 'Schedule');
-    } else {
-      fbq('track', 'Lead');
-    }
-  }
-});
 // Scroll reveal
 (function() {
   if (!window.IntersectionObserver) return;

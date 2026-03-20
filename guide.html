@@ -216,14 +216,6 @@ function setLang(lang) {
 })();
 
 
-// FB Pixel — form submission via LeadConnector postMessage
-window.addEventListener('message', function(e) {
-  if (!e.data) return;
-  var d = (typeof e.data === 'string') ? e.data : JSON.stringify(e.data);
-  if (d.indexOf('form-submitted') !== -1 || d.indexOf('formSubmitted') !== -1) {
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-  }
-});
 // Scroll reveal
 (function() {
   if (!window.IntersectionObserver) return;
