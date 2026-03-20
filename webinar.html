@@ -47,6 +47,14 @@
       /* Tighten main padding on small screens */
       main { padding-left: 16px !important; padding-right: 16px !important; }
     }
+
+    /* Urgency bar mobile wrap */
+    @media (max-width: 639px) {
+      .urgency-bar-text { white-space: normal !important; line-height: 1.5; }
+    }
+
+    /* Form iframe responsive */
+    .form-iframe-container iframe { width: 100%; max-width: 100%; }
   </style>
   <!-- Meta Pixel -->
   <script>
@@ -77,7 +85,7 @@
 
 <!-- URGENCY BAR -->
 <div style="background:#465241;padding:8px 16px;text-align:center;overflow:hidden;">
-  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><strong style="color:#CF8543;">86%</strong> of Enclave sold &middot; <strong style="color:#CF8543;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</p>
+  <p class="urgency-bar-text" style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><span class="en"><strong style="color:#CF8543;">86%</strong> of Enclave sold &middot; <strong style="color:#CF8543;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</span><span class="es"><strong style="color:#CF8543;">86%</strong> del Enclave vendido &middot; <strong style="color:#CF8543;">8 lotes</strong> al precio actual &middot; Precio sube cada 10 lotes</span></p>
 </div>
 
 <main class="flex-1 py-12 md:py-20 px-5 sm:px-6">
@@ -85,20 +93,20 @@
 
     <!-- Header -->
     <div class="text-center mb-10">
-      <div class="gold-badge mb-5">Free Live Event</div>
+      <div class="gold-badge mb-5"><span class="en">Free Live Event</span><span class="es">Evento en Vivo Gratuito</span></div>
       <h1 class="serif mb-4" style="font-size:clamp(1.9rem,5vw,3rem);line-height:1.2;color:#465241;font-weight:700;">
-        Selvadentro Investor<br/><em style="color:#CF8543;font-style:normal;">Live Webinar</em>
+        <span class="en">Selvadentro Investor<br/><em style="color:#CF8543;font-style:normal;">Live Webinar</em></span><span class="es">Webinar en Vivo para Inversionistas<br/><em style="color:#CF8543;font-style:normal;">Selvadentro</em></span>
       </h1>
-      <p class="text-base sm:text-lg" style="color:#6B5F4E;line-height:1.7;">Get the full investment case presented live by our team. Numbers, legal structure, ROI projections, and live Q&amp;A.</p>
+      <p class="text-base sm:text-lg" style="color:#6B5F4E;line-height:1.7;"><span class="en">Get the full investment case presented live by our team. Numbers, legal structure, ROI projections, and live Q&amp;A.</span><span class="es">Conozca el caso de inversi&oacute;n completo presentado en vivo por nuestro equipo. N&uacute;meros, estructura legal, proyecciones de retorno y preguntas en vivo.</span></p>
     </div>
 
     <!-- Event Details -->
     <div class="card p-6 mb-6 reveal">
-      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;">Event Details</h3>
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;"><span class="en">Event Details</span><span class="es">Detalles del Evento</span></h3>
       <div class="space-y-3">
         <div class="flex items-center gap-3">
           <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/></svg>
-          <span style="font-size:0.88rem;color:#465241;font-weight:500;">Thursday, March 26, 2026</span>
+          <span style="font-size:0.88rem;color:#465241;font-weight:500;"><span class="en">Thursday, March 26, 2026</span><span class="es">Jueves, 26 de Marzo, 2026</span></span>
         </div>
         <div class="flex items-center gap-3">
           <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -106,108 +114,110 @@
         </div>
         <div class="flex items-center gap-3">
           <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"/></svg>
-          <span style="font-size:0.88rem;color:#465241;font-weight:500;">Zoom &mdash; link sent to your email on registration</span>
+          <span style="font-size:0.88rem;color:#465241;font-weight:500;"><span class="en">Zoom &mdash; link sent to your email on registration</span><span class="es">Zoom &mdash; enlace enviado a su correo al registrarse</span></span>
         </div>
         <div class="flex items-center gap-3">
           <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
-          <span style="font-size:0.88rem;color:#465241;font-weight:500;">Replay available if you can&rsquo;t attend live</span>
+          <span style="font-size:0.88rem;color:#465241;font-weight:500;"><span class="en">Replay available if you can&rsquo;t attend live</span><span class="es">Grabaci&oacute;n disponible si no puede asistir en vivo</span></span>
         </div>
       </div>
     </div>
 
     <!-- Countdown -->
     <div class="card p-5 mb-6 text-center reveal" style="transition-delay:0.1s;">
-      <p style="font-size:0.75rem;color:#9A8E7A;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;">Webinar starts in</p>
+      <p style="font-size:0.75rem;color:#9A8E7A;margin-bottom:10px;text-transform:uppercase;letter-spacing:0.08em;"><span class="en">Webinar starts in</span><span class="es">El webinar comienza en</span></p>
       <div class="flex gap-3 justify-center">
-        <div class="countdown-box"><div class="countdown-num" id="w-days">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">DAYS</div></div>
-        <div class="countdown-box"><div class="countdown-num" id="w-hours">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">HOURS</div></div>
-        <div class="countdown-box"><div class="countdown-num" id="w-mins">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">MINS</div></div>
-        <div class="countdown-box"><div class="countdown-num" id="w-secs">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;">SECS</div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-days">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;"><span class="en">DAYS</span><span class="es">D&Iacute;AS</span></div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-hours">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;"><span class="en">HOURS</span><span class="es">HORAS</span></div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-mins">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;"><span class="en">MINS</span><span class="es">MIN</span></div></div>
+        <div class="countdown-box"><div class="countdown-num" id="w-secs">--</div><div style="font-size:0.6rem;color:#9A8E7A;margin-top:4px;"><span class="en">SECS</span><span class="es">SEG</span></div></div>
       </div>
     </div>
 
     <!-- What You'll Learn -->
     <div class="card p-6 mb-6 reveal" style="transition-delay:0.15s;">
-      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;">What You&rsquo;ll Learn</h3>
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;"><span class="en">What You&rsquo;ll Learn</span><span class="es">Lo Que Aprender&aacute;</span></h3>
       <div class="space-y-3">
         <div class="flex gap-3">
           <div style="width:22px;height:22px;border-radius:50%;background:rgba(207,133,67,0.1);border:1px solid rgba(207,133,67,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#CF8543;font-weight:700;flex-shrink:0;">1</div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">The complete investment case &mdash; why Selvadentro, why now</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><span class="en">The complete investment case &mdash; why Selvadentro, why now</span><span class="es">El caso de inversi&oacute;n completo &mdash; por qu&eacute; Selvadentro, por qu&eacute; ahora</span></p>
         </div>
         <div class="flex gap-3">
           <div style="width:22px;height:22px;border-radius:50%;background:rgba(207,133,67,0.1);border:1px solid rgba(207,133,67,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#CF8543;font-weight:700;flex-shrink:0;">2</div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Legal structure, Fideicomiso ownership, and deed process</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><span class="en">Legal structure, Fideicomiso ownership, and deed process</span><span class="es">Estructura legal, propiedad por Fideicomiso y proceso de escrituraci&oacute;n</span></p>
         </div>
         <div class="flex gap-3">
           <div style="width:22px;height:22px;border-radius:50%;background:rgba(207,133,67,0.1);border:1px solid rgba(207,133,67,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#CF8543;font-weight:700;flex-shrink:0;">3</div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">ROI projections: Phase 1 to Phase 4 appreciation (<strong style="color:#465241;">+134%</strong>)</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><span class="en">ROI projections: Phase 1 to Phase 4 appreciation (<strong style="color:#465241;">+134%</strong>)</span><span class="es">Proyecciones de retorno: apreciaci&oacute;n de Fase 1 a Fase 4 (<strong style="color:#465241;">+134%</strong>)</span></p>
         </div>
         <div class="flex gap-3">
           <div style="width:22px;height:22px;border-radius:50%;background:rgba(207,133,67,0.1);border:1px solid rgba(207,133,67,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#CF8543;font-weight:700;flex-shrink:0;">4</div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Financing options: 20% minimum down payment, flexible payment plans</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><span class="en">Financing options: 20% minimum down payment, flexible payment plans</span><span class="es">Opciones de financiamiento: 20% de enganche m&iacute;nimo, planes de pago flexibles</span></p>
         </div>
         <div class="flex gap-3">
           <div style="width:22px;height:22px;border-radius:50%;background:rgba(207,133,67,0.1);border:1px solid rgba(207,133,67,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:#CF8543;font-weight:700;flex-shrink:0;">5</div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;">Live Q&amp;A &mdash; our team answers every question</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.5;"><span class="en">Live Q&amp;A &mdash; our team answers every question</span><span class="es">Preguntas y respuestas en vivo &mdash; nuestro equipo responde todas sus dudas</span></p>
         </div>
       </div>
     </div>
 
     <!-- Registration Form -->
     <div class="card p-6 mb-6 reveal" style="transition-delay:0.2s;">
-      <h3 class="serif font-semibold text-lg mb-2" style="color:#465241;">Reserve Your Seat &mdash; Free</h3>
-      <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Seats are limited. Register below to receive your Zoom link.</p>
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/jslbmvs7egmoqNynczut"
-        style="width:100%;height:578px;border:none;border-radius:3px;"
-        id="inline-jslbmvs7egmoqNynczut"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="&quot;Investor&quot; Page Webinar Form"
-        data-height="578"
-        data-layout-iframe-id="inline-jslbmvs7egmoqNynczut"
-        data-form-id="jslbmvs7egmoqNynczut"
-        title="&quot;Investor&quot; Page Webinar Form">
-      </iframe>
+      <h3 class="serif font-semibold text-lg mb-2" style="color:#465241;"><span class="en">Reserve Your Seat &mdash; Free</span><span class="es">Reserve Su Lugar &mdash; Gratis</span></h3>
+      <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;"><span class="en">Seats are limited. Register below to receive your Zoom link.</span><span class="es">Los lugares son limitados. Reg&iacute;strese para recibir su enlace de Zoom.</span></p>
+      <div class="form-iframe-container">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/jslbmvs7egmoqNynczut"
+          style="width:100%;height:578px;border:none;border-radius:3px;"
+          id="inline-jslbmvs7egmoqNynczut"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="&quot;Investor&quot; Page Webinar Form"
+          data-height="578"
+          data-layout-iframe-id="inline-jslbmvs7egmoqNynczut"
+          data-form-id="jslbmvs7egmoqNynczut"
+          title="&quot;Investor&quot; Page Webinar Form">
+        </iframe>
+      </div>
       <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     </div>
 
     <!-- Bonus Content -->
     <div class="card p-6 mb-8 reveal" style="transition-delay:0.25s;">
-      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;">Free Bonuses for Registrants</h3>
+      <h3 class="serif font-semibold text-lg mb-4" style="color:#465241;"><span class="en">Free Bonuses for Registrants</span><span class="es">Bonos Gratuitos para Registrados</span></h3>
       <div class="space-y-4">
         <div class="flex gap-4 items-start">
           <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
           </div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#465241;">Selvadentro Investor Guide</strong> &mdash; 42 pages covering the full investment case, legal structure, and project breakdown</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><span class="en"><strong style="color:#465241;">Selvadentro Investor Guide</strong> &mdash; 42 pages covering the full investment case, legal structure, and project breakdown</span><span class="es"><strong style="color:#465241;">Gu&iacute;a del Inversionista Selvadentro</strong> &mdash; 42 p&aacute;ginas con el caso de inversi&oacute;n completo, estructura legal y desglose del proyecto</span></p>
         </div>
         <div class="flex gap-4 items-start">
           <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
           </div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#465241;">Tulum Market Report 2026</strong> &mdash; latest price data, demand trends, and infrastructure updates</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><span class="en"><strong style="color:#465241;">Tulum Market Report 2026</strong> &mdash; latest price data, demand trends, and infrastructure updates</span><span class="es"><strong style="color:#465241;">Reporte del Mercado de Tulum 2026</strong> &mdash; datos de precios actualizados, tendencias de demanda y avances en infraestructura</span></p>
         </div>
         <div class="flex gap-4 items-start">
           <div style="width:36px;height:36px;border-radius:10px;background:rgba(207,133,67,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
             <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
           </div>
-          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><strong style="color:#465241;">ROI Projection Spreadsheet</strong> &mdash; model your own scenarios with real numbers</p>
+          <p style="font-size:0.85rem;color:#6B5F4E;line-height:1.6;"><span class="en"><strong style="color:#465241;">ROI Projection Spreadsheet</strong> &mdash; model your own scenarios with real numbers</span><span class="es"><strong style="color:#465241;">Hoja de Proyecci&oacute;n de Retorno</strong> &mdash; modele sus propios escenarios con n&uacute;meros reales</span></p>
         </div>
       </div>
     </div>
 
     <!-- Single CTA -->
-    <a href="book-call.html" class="cta-primary cta-pulse px-7 py-4 rounded-xl text-sm" style="display:block;text-align:center;">Book a Private Investor Call &rarr;</a>
+    <a href="book-call.html" class="cta-primary cta-pulse px-7 py-4 rounded-xl text-sm" style="display:block;text-align:center;"><span class="en">Book a Private Investor Call &rarr;</span><span class="es">Reservar Llamada con Asesor &rarr;</span></a>
     <p style="text-align:center;font-size:0.75rem;color:#9A8E7A;margin-top:16px;">
-      <a href="guide.html" style="color:#CF8543;text-decoration:none;">Download Investor Guide</a>
+      <a href="guide.html" style="color:#CF8543;text-decoration:none;"><span class="en">Download Investor Guide</span><span class="es">Descargar Gu&iacute;a del Inversionista</span></a>
       &nbsp;&middot;&nbsp;
-      <a href="index.html" style="color:#CF8543;text-decoration:none;">Back to Overview</a>
+      <a href="index.html" style="color:#CF8543;text-decoration:none;"><span class="en">Back to Overview</span><span class="es">Volver al Inicio</span></a>
     </p>
 
   </div>
@@ -224,7 +234,7 @@
 
 <!-- Mobile Sticky CTA -->
 <div class="sticky-cta">
-  <a href="book-call.html" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;">Book a Private Investor Call &rarr;</a>
+  <a href="book-call.html" class="cta-primary" style="display:block;padding:13px 20px;border-radius:12px;font-size:0.9rem;text-decoration:none;text-align:center;"><span class="en">Book a Private Investor Call &rarr;</span><span class="es">Reservar Llamada con Asesor &rarr;</span></a>
 </div>
 
 <script>

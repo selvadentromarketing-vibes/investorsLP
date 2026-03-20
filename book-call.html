@@ -43,6 +43,13 @@
       nav a, nav button { min-height: auto; }
       /* Tighten main padding on small screens */
       main { padding-left: 16px !important; padding-right: 16px !important; }
+      /* Urgency bar: allow text wrapping on mobile */
+      .urgency-text { white-space: normal !important; line-height: 1.5; }
+      /* Tab buttons: prevent overflow on narrow screens */
+      .tab-grid button { min-width: 0; overflow: hidden; }
+      .tab-grid { gap: 8px !important; }
+      /* Booking iframe mobile height adjustment */
+      .booking-iframe { min-height: 600px !important; }
     }
   </style>
   <!-- Meta Pixel -->
@@ -73,8 +80,8 @@
 </nav>
 
 <!-- URGENCY BAR -->
-<div style="background:#465241;padding:8px 16px;text-align:center;overflow:hidden;">
-  <p style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><strong style="color:#CF8543;">86%</strong> of Enclave sold &middot; <strong style="color:#CF8543;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</p>
+<div style="background:#465241;padding:8px 16px;text-align:center;">
+  <p class="urgency-text" style="font-size:0.72rem;color:rgba(245,240,230,0.85);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"><span class="en"><strong style="color:#CF8543;">86%</strong> of Enclave sold &middot; <strong style="color:#CF8543;">8 lots</strong> at current price &middot; Price increases every 10 lots sold</span><span class="es"><strong style="color:#CF8543;">86%</strong> del Enclave vendido &middot; <strong style="color:#CF8543;">8 lotes</strong> al precio actual &middot; Precio sube cada 10 lotes</span></p>
 </div>
 
 <main class="flex-1 py-10 md:py-16 px-5 sm:px-6">
@@ -82,15 +89,15 @@
 
     <!-- Header -->
     <div class="text-center mb-8">
-      <div class="gold-badge mb-4">Private Session &mdash; 30 Min</div>
+      <div class="gold-badge mb-4"><span class="en">Private Session &mdash; 30 Min</span><span class="es">Sesi&oacute;n Privada &mdash; 30 Min</span></div>
       <h1 class="serif mb-3" style="font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.2;color:#465241;font-weight:700;">
-        Speak with an<br/><em style="color:#CF8543;font-style:normal;">Investment Advisor</em>
+        <span class="en">Speak with an<br/><em style="color:#CF8543;font-style:normal;">Investment Advisor</em></span><span class="es">Hable con un<br/><em style="color:#CF8543;font-style:normal;">Asesor de Inversi&oacute;n</em></span>
       </h1>
-      <p style="color:#6B5F4E;line-height:1.7;font-size:0.95rem;">1-on-1, no pressure. Choose how you&rsquo;d like to connect.</p>
+      <p style="color:#6B5F4E;line-height:1.7;font-size:0.95rem;"><span class="en">1-on-1, no pressure. Choose how you&rsquo;d like to connect.</span><span class="es">1 a 1, sin presi&oacute;n. Elija c&oacute;mo prefiere conectarse.</span></p>
     </div>
 
     <!-- TWO OPTION TABS -->
-    <div class="grid grid-cols-2 gap-3 mb-6 reveal">
+    <div class="tab-grid grid grid-cols-2 gap-3 mb-6 reveal">
 
       <!-- Option A: Book a Call -->
       <button id="tab-book" onclick="showTab('book');if(typeof fbq!=='undefined')fbq('track','Schedule');"
@@ -100,8 +107,8 @@
             <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
           </div>
         </div>
-        <div class="serif font-semibold" style="color:#F5F0E6;font-size:1rem;margin-bottom:3px;">Book a Call</div>
-        <div style="font-size:0.72rem;color:rgba(207,133,67,0.85);">Pick a time that works</div>
+        <div class="serif font-semibold" style="color:#F5F0E6;font-size:1rem;margin-bottom:3px;"><span class="en">Book a Call</span><span class="es">Agendar Llamada</span></div>
+        <div style="font-size:0.72rem;color:rgba(207,133,67,0.85);"><span class="en">Pick a time that works</span><span class="es">Elija el horario ideal</span></div>
       </button>
 
       <!-- Option B: Get Called ASAP -->
@@ -112,8 +119,8 @@
             <svg width="18" height="18" fill="none" stroke="#CF8543" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
           </div>
         </div>
-        <div class="serif font-semibold" style="color:#465241;font-size:1rem;margin-bottom:3px;">Get Called ASAP</div>
-        <div style="font-size:0.72rem;color:#9A8E7A;">We call you in 30 min</div>
+        <div class="serif font-semibold" style="color:#465241;font-size:1rem;margin-bottom:3px;"><span class="en">Get Called ASAP</span><span class="es">Que Le Llamen Ya</span></div>
+        <div style="font-size:0.72rem;color:#9A8E7A;"><span class="en">We call you in 30 min</span><span class="es">Le llamamos en 30 min</span></div>
       </button>
 
     </div>
@@ -123,26 +130,26 @@
       <div class="card p-5 mb-4" style="background:#F8F5EF;border:1px solid #E5DDD0;">
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div class="text-center">
-            <div style="font-size:0.75rem;font-weight:600;color:#465241;">30 Min</div>
-            <div style="font-size:0.65rem;color:#9A8E7A;">No pressure</div>
+            <div style="font-size:0.75rem;font-weight:600;color:#465241;"><span class="en">30 Min</span><span class="es">30 Min</span></div>
+            <div style="font-size:0.65rem;color:#9A8E7A;"><span class="en">No pressure</span><span class="es">Sin presi&oacute;n</span></div>
           </div>
           <div class="text-center">
-            <div style="font-size:0.75rem;font-weight:600;color:#465241;">1-on-1</div>
-            <div style="font-size:0.65rem;color:#9A8E7A;">Senior advisor</div>
+            <div style="font-size:0.75rem;font-weight:600;color:#465241;"><span class="en">1-on-1</span><span class="es">1 a 1</span></div>
+            <div style="font-size:0.65rem;color:#9A8E7A;"><span class="en">Senior advisor</span><span class="es">Asesor senior</span></div>
           </div>
           <div class="text-center">
-            <div style="font-size:0.75rem;font-weight:600;color:#465241;">Zoom / Phone</div>
-            <div style="font-size:0.65rem;color:#9A8E7A;">Your choice</div>
+            <div style="font-size:0.75rem;font-weight:600;color:#465241;"><span class="en">Zoom / Phone</span><span class="es">Zoom / Tel&eacute;fono</span></div>
+            <div style="font-size:0.65rem;color:#9A8E7A;"><span class="en">Your choice</span><span class="es">Usted elige</span></div>
           </div>
           <div class="text-center">
-            <div style="font-size:0.75rem;font-weight:600;color:#465241;">EN / ES</div>
-            <div style="font-size:0.65rem;color:#9A8E7A;">Bilingual</div>
+            <div style="font-size:0.75rem;font-weight:600;color:#465241;"><span class="en">EN / ES</span><span class="es">EN / ES</span></div>
+            <div style="font-size:0.65rem;color:#9A8E7A;"><span class="en">Bilingual</span><span class="es">Biling&uuml;e</span></div>
           </div>
         </div>
       </div>
       <div class="card p-6 mb-6">
-        <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:16px;">Select a time that works for you. Available Mon&ndash;Sat, 9:00&ndash;20:00.</p>
-        <iframe src="https://api.leadconnectorhq.com/widget/booking/LEPzVcdGTKS1rhy1T7Qk" style="width:100%;border:none;overflow:hidden;min-height:700px;" scrolling="no" id="LEPzVcdGTKS1rhy1T7Qk_1773875297902"></iframe>
+        <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:16px;"><span class="en">Select a time that works for you. Available Mon&ndash;Sat, 9:00&ndash;20:00.</span><span class="es">Seleccione el horario que m&aacute;s le convenga. Disponible Lun&ndash;S&aacute;b, 9:00&ndash;20:00.</span></p>
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/LEPzVcdGTKS1rhy1T7Qk" class="booking-iframe" style="width:100%;border:none;overflow:hidden;min-height:700px;" scrolling="no" id="LEPzVcdGTKS1rhy1T7Qk_1773875297902"></iframe>
         <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
@@ -152,9 +159,9 @@
       <div class="card p-6 mb-6" style="border-top:3px solid #CF8543;">
         <div class="flex items-center gap-2 mb-1">
           <svg width="16" height="16" fill="none" stroke="#CF8543" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg>
-          <span style="font-size:0.78rem;font-weight:700;color:#CF8543;letter-spacing:0.04em;">WE CALL YOU WITHIN 30 MINUTES</span>
+          <span style="font-size:0.78rem;font-weight:700;color:#CF8543;letter-spacing:0.04em;"><span class="en">WE CALL YOU WITHIN 30 MINUTES</span><span class="es">LE LLAMAMOS EN 30 MINUTOS</span></span>
         </div>
-        <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;">Leave your number below. A senior advisor will call you back during business hours &mdash; guaranteed.</p>
+        <p style="font-size:0.82rem;color:#9A8E7A;margin-bottom:20px;"><span class="en">Leave your number below. A senior advisor will call you back during business hours &mdash; guaranteed.</span><span class="es">Deje su n&uacute;mero aqu&iacute;. Un asesor senior le devolver&aacute; la llamada en horario laboral &mdash; garantizado.</span></p>
         <iframe
           src="https://api.leadconnectorhq.com/widget/form/ptxW4bYKZSJLPPLX59ua"
           style="width:100%;height:433px;border:none;border-radius:3px;"
@@ -178,9 +185,9 @@
 
     <!-- Small text links -->
     <p style="text-align:center;font-size:0.75rem;color:#9A8E7A;">
-      <a href="guide.html" style="color:#CF8543;text-decoration:none;">Download Investor Guide</a>
+      <a href="guide.html" style="color:#CF8543;text-decoration:none;"><span class="en">Download Investor Guide</span><span class="es">Descargar Gu&iacute;a del Inversionista</span></a>
       &nbsp;&middot;&nbsp;
-      <a href="webinar.html" style="color:#CF8543;text-decoration:none;">Join the Live Webinar</a>
+      <a href="webinar.html" style="color:#CF8543;text-decoration:none;"><span class="en">Join the Live Webinar</span><span class="es">Unirse al Webinar en Vivo</span></a>
     </p>
 
   </div>
@@ -198,8 +205,8 @@
 <!-- Mobile Sticky CTA -->
 <div class="sticky-cta">
   <div class="grid grid-cols-2 gap-2">
-    <button onclick="showTab('book');window.scrollTo({top:400,behavior:'smooth'});" class="cta-primary" style="padding:11px 8px;border-radius:10px;font-size:0.82rem;border:none;">Book a Call</button>
-    <button onclick="showTab('asap');window.scrollTo({top:400,behavior:'smooth'});" style="padding:11px 8px;border-radius:10px;font-size:0.82rem;border:2px solid #CF8543;background:#FFFFFF;color:#A86A30;font-weight:600;cursor:pointer;">Get Called ASAP</button>
+    <button onclick="showTab('book');window.scrollTo({top:400,behavior:'smooth'});" class="cta-primary" style="padding:11px 8px;border-radius:10px;font-size:0.82rem;border:none;"><span class="en">Book a Call</span><span class="es">Agendar Llamada</span></button>
+    <button onclick="showTab('asap');window.scrollTo({top:400,behavior:'smooth'});" style="padding:11px 8px;border-radius:10px;font-size:0.82rem;border:2px solid #CF8543;background:#FFFFFF;color:#A86A30;font-weight:600;cursor:pointer;"><span class="en">Get Called ASAP</span><span class="es">Que Le Llamen</span></button>
   </div>
 </div>
 
