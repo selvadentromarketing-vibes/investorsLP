@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -29,11 +29,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link rel="preconnect" href="https://selvadentrotulum.com"/>
   <!-- Preload LCP hero image (served locally from Netlify CDN) -->
-  <link rel="preload" as="image" href="hero-bg-opt.jpg" imagesrcset="hero-bg-mobile.jpg 800w, hero-bg-opt.jpg 1400w" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="../hero-bg-opt.jpg" imagesrcset="../hero-bg-mobile.jpg 800w, ../hero-bg-opt.jpg 1400w" imagesizes="100vw" fetchpriority="high"/>
   <!-- Google Fonts: non-blocking via preload swap trick -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
-  <link rel="stylesheet" href="tailwind.css"/>
+  <link rel="stylesheet" href="../tailwind.css"/>
   <style>
     * { box-sizing: border-box; }
     body { background: #F8F5EF; color: #465241; font-family: "Work Sans", sans-serif; min-height: 100vh; }
@@ -167,7 +167,7 @@
 <nav style="background:#FFFFFF;border-bottom:1px solid #E5DDD0;position:sticky;top:0;z-index:50;">
   <div class="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between gap-3">
     <a href="index.html" class="flex items-center flex-shrink-0">
-      <img src="selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:48px;width:auto;">
+      <img src="../selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:48px;width:auto;">
     </a>
     <div class="desktop-only flex items-center gap-5">
       <a href="#why" class="text-sm" style="color:#6B5F4E;"><span class="en">The Investment</span><span class="es">La Inversi&oacute;n</span></a>
@@ -175,7 +175,7 @@
       <a href="#developer" class="text-sm" style="color:#6B5F4E;"><span class="en">Developer</span><span class="es">Desarrollador</span></a>
     </div>
     <div class="flex items-center gap-3">
-      <a href="es/index.html" hreflang="es" class="desktop-only" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#465241'" onmouseout="this.style.color='#9A8E7A'">Español</a>
+      <a href="../index.html" hreflang="en" class="desktop-only" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#465241'" onmouseout="this.style.color='#9A8E7A'">English</a>
       <a href="book-call.html" class="cta-primary desktop-only px-4 py-2 rounded-lg text-sm"><span class="en">Book a Call</span><span class="es">Reservar Llamada</span></a>
       <button id="menu-btn" class="mobile-only p-2 rounded-lg" style="color:#465241;background:#F8F5EF;">
         <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -188,7 +188,7 @@
       <a href="#pricing" class="block text-sm py-2 px-3 rounded-lg" style="color:#6B5F4E;"><span class="en">Pricing</span><span class="es">Precios</span></a>
       <a href="#developer" class="block text-sm py-2 px-3 rounded-lg" style="color:#6B5F4E;"><span class="en">Developer</span><span class="es">Desarrollador</span></a>
       <div class="pt-3 flex flex-col gap-2">
-        <div class="flex justify-center pt-1 pb-1"><a href="es/index.html" hreflang="es" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;">Español</a></div>
+        <div class="flex justify-center pt-1 pb-1"><a href="../index.html" hreflang="en" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;">English</a></div>
         <a href="book-call.html" class="cta-primary block py-3 rounded-xl text-sm text-center"><span class="en">Book a Call</span><span class="es">Reservar Llamada</span></a>
       </div>
     </div>
@@ -210,7 +210,7 @@
 <section id="hero" style="position:relative;min-height:92vh;overflow:hidden;display:flex;flex-direction:column;">
   <!-- Background image -->
   <div style="position:absolute;inset:0;">
-    <img src="hero-bg-opt.jpg" srcset="hero-bg-mobile.jpg 800w, hero-bg-opt.jpg 1400w" sizes="100vw" alt="Selvadentro Tulum aerial view" width="1400" height="787" fetchpriority="high" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;"/>
+    <img src="../hero-bg-opt.jpg" srcset="../hero-bg-mobile.jpg 800w, ../hero-bg-opt.jpg 1400w" sizes="100vw" alt="Selvadentro Tulum aerial view" width="1400" height="787" fetchpriority="high" loading="eager" decoding="async" style="width:100%;height:100%;object-fit:cover;"/>
     <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,42,22,0.93) 0%,rgba(22,42,22,0.78) 45%,rgba(22,42,22,0.42) 100%);"></div>
     <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,15,7,0.62) 0%,transparent 55%);"></div>
   </div>
@@ -751,7 +751,7 @@
       <!-- Aldea Zama card with photo -->
       <div class="card reveal track-card" style="overflow:hidden;padding:0;">
         <div style="position:relative;overflow:hidden;height:200px;">
-          <img src="Aldea-Zama-Masterplan-fondo-blanco.jpg" alt="Aldea Zama Masterplan" class="proj-img" width="1315" height="1029" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+          <img src="../Aldea-Zama-Masterplan-fondo-blanco.jpg" alt="Aldea Zama Masterplan" class="proj-img" width="1315" height="1029" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
           <div class="proj-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,42,22,0.82) 0%,rgba(22,42,22,0.1) 55%,transparent 100%);pointer-events:none;display:flex;align-items:flex-end;padding:14px;">
             <span style="font-size:0.72rem;color:rgba(255,255,255,0.92);font-weight:500;letter-spacing:0.04em;"><span class="en">Aldea Zama &mdash; Tulum, Mexico</span><span class="es">Aldea Zama &mdash; Tulum, M&eacute;xico</span></span>
           </div>
@@ -771,7 +771,7 @@
       <!-- Yucatán Country Club card with photo -->
       <div class="card reveal track-card" style="overflow:hidden;padding:0;transition-delay:0.12s;">
         <div style="position:relative;overflow:hidden;height:200px;">
-          <img src="EB-MD8411.webp" alt="Yucatán Country Club" class="proj-img" width="805" height="650" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+          <img src="../EB-MD8411.webp" alt="Yucatán Country Club" class="proj-img" width="805" height="650" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
           <div class="proj-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,42,22,0.82) 0%,rgba(22,42,22,0.1) 55%,transparent 100%);pointer-events:none;display:flex;align-items:flex-end;padding:14px;">
             <span style="font-size:0.72rem;color:rgba(255,255,255,0.92);font-weight:500;letter-spacing:0.04em;"><span class="en">Yucat&aacute;n Country Club &mdash; M&eacute;rida</span><span class="es">Yucat&aacute;n Country Club &mdash; M&eacute;rida</span></span>
           </div>
@@ -792,7 +792,7 @@
     <!-- Selvadentro Master Plan -->
     <div class="card reveal track-card mb-6" style="overflow:hidden;padding:0;">
       <div style="position:relative;overflow:hidden;">
-        <img src="selvadentro-masterplan.jpg" alt="Selvadentro Master Plan" class="proj-img masterplan-img" width="1200" height="498" style="width:100%;display:block;max-height:460px;object-fit:cover;object-position:center top;"/>
+        <img src="../selvadentro-masterplan.jpg" alt="Selvadentro Master Plan" class="proj-img masterplan-img" width="1200" height="498" style="width:100%;display:block;max-height:460px;object-fit:cover;object-position:center top;"/>
         <div class="proj-overlay" style="position:absolute;inset:0;background:linear-gradient(to top,rgba(22,42,22,0.88) 0%,rgba(22,42,22,0.1) 45%,transparent 100%);pointer-events:none;display:flex;align-items:flex-end;padding:20px 24px;">
           <div>
             <p style="font-size:0.62rem;color:rgba(207,133,67,0.9);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;margin:0 0 4px;"><span class="en">Official Master Plan</span><span class="es">Plan Maestro Oficial</span></p>
@@ -905,7 +905,7 @@
 <footer style="background:#465241;padding:44px 24px 36px;">
   <div class="max-w-5xl mx-auto text-center">
     <div class="flex items-center justify-center mb-5">
-      <img src="selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:44px;width:auto;max-width:200px;opacity:0.9;"/>
+      <img src="../selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:44px;width:auto;max-width:200px;opacity:0.9;"/>
     </div>
     <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-5">
       <a href="guide.html" style="color:rgba(245,240,230,0.45);font-size:0.78rem;"><span class="en">Download Investor Guide</span><span class="es">Descargar Gu&iacute;a del Inversionista</span></a>

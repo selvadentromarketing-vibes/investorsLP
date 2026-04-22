@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="theme-color" content="#465241"/>
   <title>You&rsquo;re Registered! &mdash; Selvadentro Tulum Webinar</title>
+  <link rel="alternate" hreflang="en" href="https://investor.selvadentrotulum.com/thank-you-webinar.html"/>
+  <link rel="alternate" hreflang="es" href="https://investor.selvadentrotulum.com/es/thank-you-webinar.html"/>
+  <link rel="alternate" hreflang="x-default" href="https://investor.selvadentrotulum.com/thank-you-webinar.html"/>
   <meta name="description" content="You're registered for the Selvadentro Tulum investor webinar. Check your email for event details and calendar invite."/>
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any"/>
@@ -86,10 +89,7 @@
     <a href="index.html" class="flex items-center">
       <img src="selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:48px;width:auto;">
     </a>
-    <div class="lang-toggle">
-      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
-    </div>
+    <a href="es/thank-you-webinar.html" hreflang="es" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='#465241'" onmouseout="this.style.color='#9A8E7A'">Español</a>
   </div>
 </nav>
 
@@ -168,16 +168,6 @@
 </footer>
 
 <script>
-function setLang(lang) {
-  document.documentElement.lang = lang;
-  localStorage.setItem("slvd_lang", lang);
-  document.querySelectorAll(".lang-btn").forEach(function(btn) { btn.classList.remove("active"); });
-  document.querySelectorAll("#btn-" + lang).forEach(function(btn) { btn.classList.add("active"); });
-}
-(function() {
-  var saved = localStorage.getItem("slvd_lang");
-  if (saved === "es") { setLang("es"); }
-})();
 // Scroll reveal
 (function() {
   if (!window.IntersectionObserver) return;
