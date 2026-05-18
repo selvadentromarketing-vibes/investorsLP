@@ -9,3 +9,5 @@ node_modules/
 
 # Claude local config
 .claude/
+.claude-flow/
+.swarm/

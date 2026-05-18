@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#465241"/>
+  <meta name="description" content="Selvadentro Tulum — Madrid event exclusive. Leave your details and a senior investment advisor will call you within 24 hours."/>
+  <title>Selvadentro Tulum — Madrid Event Exclusive</title>
+  <meta name="robots" content="noindex,follow"/>
+  <link rel="alternate" hreflang="en" href="https://investor.selvadentrotulum.com/eventos/madrid"/>
+  <link rel="alternate" hreflang="es" href="https://investor.selvadentrotulum.com/es/eventos/madrid"/>
+  <link rel="alternate" hreflang="x-default" href="https://investor.selvadentrotulum.com/es/eventos/madrid"/>
+  <link rel="icon" href="/favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="manifest" href="/site.webmanifest"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Selvadentro Tulum — Madrid Event Exclusive"/>
+  <meta property="og:description" content="Lock Phase 1 pricing on Tulum residential lots. 9 natural cenotes. 48-month 0% financing."/>
+  <meta property="og:image" content="/og-image.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Selvadentro Tulum — Madrid Event Exclusive"/>
+  <meta name="twitter:image" content="/og-image.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="image" href="../hero-bg-opt.jpg" imagesrcset="../hero-bg-mobile.jpg 800w, ../hero-bg-opt.jpg 1400w" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+  <link rel="stylesheet" href="../tailwind.css"/>
+  <style>
+    * { box-sizing: border-box; }
+    body { background: #F8F5EF; color: #465241; font-family: "Work Sans", sans-serif; min-height: 100vh; }
+    .serif { font-family: "Cardo", serif; }
+    .gold { color: #CF8543; }
+    .card { background: #FFFFFF; border: 1px solid #E5DDD0; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .gold-badge { background: rgba(207,133,67,0.12); border: 1px solid rgba(207,133,67,0.3); color: #A86A30; border-radius: 20px; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; padding:4px 14px; display:inline-block; }
+    .verify-badge { background: #E8F5E0; border: 1px solid #A8D890; color: #2A6E0A; border-radius: 4px; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; display:inline-block; }
+    .cta-primary { background: linear-gradient(135deg, #CF8543, #A86A30); color: #FFFFFF; font-weight: 600; transition: all 0.3s; text-align: center; display: inline-block; cursor:pointer; }
+    .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(207,133,67,0.3); background: linear-gradient(135deg, #D99558, #CF8543); }
+    .cta-primary[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }
+    html[lang="en"] .es { display: none; }
+    html[lang="es"] .en { display: none; }
+    html { scroll-behavior: smooth; }
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.65s cubic-bezier(.16,1,.3,1), transform 0.65s cubic-bezier(.16,1,.3,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes pulse-cta { 0%,100%{ box-shadow:0 6px 28px rgba(207,133,67,0.22); } 50%{ box-shadow:0 6px 42px rgba(207,133,67,0.48); } }
+    .cta-pulse { animation: pulse-cta 2.8s ease-in-out infinite; }
+    .cta-pulse:hover { animation: none; }
+    @keyframes checkPop { 0% { transform: scale(0); opacity: 0; } 60% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+    .check-pop { animation: checkPop 0.6s ease forwards; }
+    @keyframes pulse-sec { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+
+    /* Form */
+    .lead-form { display: flex; flex-direction: column; gap: 12px; }
+    .lead-form .field-row { display: flex; flex-direction: column; gap: 5px; }
+    .lead-form label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #6B5F4E; }
+    .lead-form input { width: 100%; padding: 12px 14px; border: 1.5px solid #E5DDD0; border-radius: 10px; font-size: 1rem; font-family: inherit; color: #465241; background: #FFFFFF; transition: border-color 0.2s, box-shadow 0.2s; }
+    .lead-form input:focus { outline: none; border-color: #CF8543; box-shadow: 0 0 0 3px rgba(207,133,67,0.15); }
+    .lead-form input:invalid:not(:placeholder-shown) { border-color: #C24545; }
+    .lead-form input::placeholder { color: #B8AC97; }
+    .lead-form .form-error { color: #A04040; font-size: 0.78rem; min-height: 1.1em; }
+    .lead-form button[type="submit"] { padding: 14px 24px; border: none; border-radius: 12px; font-size: 1rem; cursor: pointer; }
+    .lead-form .privacy { font-size: 0.7rem; color: #9A8E7A; line-height: 1.45; margin: 0; }
+    .lead-form .privacy a { color: #CF8543; text-decoration: none; }
+    .form-success { text-align: center; padding: 24px 8px 8px; }
+    .form-success .check-circle { width: 64px; height: 64px; border-radius: 50%; background: rgba(42,110,10,0.08); border: 2px solid rgba(42,110,10,0.4); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+
+    /* Sticky mobile CTA */
+    .sticky-cta { display: none; }
+    @media (max-width: 768px) {
+      .sticky-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 50; padding: 10px 16px max(16px, env(safe-area-inset-bottom, 10px)); background: #FFFFFF; border-top: 1px solid #E5DDD0; box-shadow: 0 -4px 20px rgba(0,0,0,0.09); transform: translateY(100%); transition: transform 0.4s cubic-bezier(.16,1,.3,1); }
+      .sticky-cta.shown { transform: translateY(0); }
+      body { padding-bottom: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse, .check-pop { animation: none; opacity: 1; transform: none; } }
+
+    /* Hero layout */
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 440px; gap: 48px; } }
+
+    /* VSL video slot */
+    .vsl-slot { position: relative; width: 100%; max-width: 580px; aspect-ratio: 16/9; background: #0E190E; border-radius: 14px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(207,133,67,0.12); }
+    .vsl-slot iframe, .vsl-slot video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .vsl-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(245,240,230,0.7); text-align: center; padding: 16px; background: radial-gradient(circle at 50% 45%, rgba(207,133,67,0.18) 0%, rgba(14,25,14,0) 65%); }
+    .vsl-placeholder .vsl-play { width: 72px; height: 72px; border-radius: 50%; background: rgba(207,133,67,0.18); border: 1.5px solid rgba(207,133,67,0.55); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .vsl-placeholder .vsl-label { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: #CF8543; margin-bottom: 6px; }
+    .vsl-placeholder .vsl-instruction { font-size: 0.78rem; max-width: 340px; line-height: 1.5; color: rgba(245,240,230,0.55); }
+
+    /* Phase mini cards */
+    .phase-mini { padding: 14px 10px; text-align: center; border-radius: 10px; background: rgba(245,240,230,0.06); border: 1px solid rgba(245,240,230,0.08); }
+    .phase-mini.current { background: rgba(207,133,67,0.12); border-color: rgba(207,133,67,0.3); }
+    .phase-mini .ph-label { font-size: 0.58rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .phase-mini .ph-price { font-family: "Cardo", serif; font-size: 1.25rem; font-weight: 700; margin: 0; }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','680727997874671');
+  fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=680727997874671&ev=PageView&noscript=1"/></noscript>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════════
+     CONFIG — Edit these before the event
+     ════════════════════════════════════════════════════════════════════ -->
+<script>
+  window.MADRID_CONFIG = {
+    // Webhook endpoint — receives JSON {name, email, phone, lang, source, utm, ts}.
+    // Replace this placeholder with your Zapier/Make/n8n webhook URL.
+    WEBHOOK_URL: 'REPLACE_WITH_WEBHOOK_URL',
+    // Source tag included in every submission (CRM segmentation)
+    SOURCE: 'madrid-event-2026',
+    // WhatsApp fallback number (international format, digits only)
+    WHATSAPP_NUMBER: '529841374927'
+  };
+</script>
+
+<!-- NAV (compressed) -->
+<nav style="background:#FFFFFF;border-bottom:1px solid #E5DDD0;position:sticky;top:0;z-index:40;">
+  <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between">
+    <a href="../index.html" class="flex items-center">
+      <img src="../selvadentro-logo-sm.webp" alt="Selvadentro Tulum" width="400" height="225" style="height:44px;width:auto;">
+    </a>
+    <a href="../es/eventos/madrid.html" hreflang="es" style="color:#9A8E7A;font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;">Español</a>
+  </div>
+</nav>
+
+<!-- HERO + FORM -->
+<section style="position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;">
+    <img src="../hero-bg-opt.jpg" srcset="../hero-bg-mobile.jpg 800w, ../hero-bg-opt.jpg 1400w" sizes="100vw" alt="Selvadentro Tulum" width="1400" height="787" fetchpriority="high" loading="eager" style="width:100%;height:100%;object-fit:cover;"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(22,42,22,0.95) 0%,rgba(22,42,22,0.82) 50%,rgba(22,42,22,0.55) 100%);"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(7,15,7,0.55) 0%,transparent 60%);"></div>
+  </div>
+  <div style="position:relative;z-index:10;">
+    <div class="max-w-5xl mx-auto px-5 sm:px-6" style="padding-top:40px;padding-bottom:52px;">
+      <div class="hero-grid">
+        <!-- LEFT: text -->
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(207,133,67,0.18);border:1px solid rgba(207,133,67,0.4);border-radius:20px;padding:5px 14px;margin-bottom:18px;">
+            <span style="width:7px;height:7px;background:#CF8543;border-radius:50%;animation:pulse-sec 1.5s ease-in-out infinite;display:inline-block;"></span>
+            <span style="font-size:0.68rem;color:#CF8543;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;"><span class="en">Madrid Event &middot; Exclusive Access</span><span class="es">Evento Madrid &middot; Acceso Exclusivo</span></span>
+          </div>
+          <h1 class="serif" style="font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.15;color:#FFFFFF;font-weight:700;margin-bottom:16px;">
+            <span class="en">Thanks for visiting us<br/><em style="color:#CF8543;font-style:normal;">in Madrid</em></span>
+            <span class="es">Gracias por visitarnos<br/><em style="color:#CF8543;font-style:normal;">en Madrid</em></span>
+          </h1>
+          <p style="font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.65;margin-bottom:22px;max-width:520px;">
+            <span class="en">Leave your details and a senior investment advisor will call you within 24 hours to walk you through Phase 1 pricing and answer every question.</span>
+            <span class="es">Déjanos tus datos y un asesor senior de inversión te llamará en 24 horas para explicarte los precios de Fase 1 y responder todas tus preguntas.</span>
+          </p>
+          <!-- ════════════════════════════════════════════════════════════════════
+               VSL VIDEO SLOT — Replace the contents of #vsl-slot with your embed.
+               Search for: VSL_EMBED_START
+
+               YouTube example:
+                 <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+                         allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+
+               Vimeo example:
+                 <iframe src="https://player.vimeo.com/video/VIDEO_ID?title=0&byline=0"
+                         allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+
+               Self-hosted MP4:
+                 <video controls playsinline poster="../vsl-poster.jpg" preload="metadata">
+                   <source src="../vsl.mp4" type="video/mp4">
+                 </video>
+               ════════════════════════════════════════════════════════════════════ -->
+          <div class="vsl-slot" id="vsl-slot">
+            <!-- VSL_EMBED_START -->
+            <div class="vsl-placeholder">
+              <div class="vsl-play">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#CF8543" stroke="none"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="vsl-label"><span class="en">Video Sales Letter</span><span class="es">Video de Presentación</span></div>
+              <div class="vsl-instruction"><span class="en">VSL embed placeholder &mdash; replace the contents of <code style="background:rgba(207,133,67,0.12);padding:1px 5px;border-radius:3px;color:#CF8543;">#vsl-slot</code> with your YouTube / Vimeo / MP4 embed code.</span><span class="es">Placeholder del VSL &mdash; reemplaza el contenido de <code style="background:rgba(207,133,67,0.12);padding:1px 5px;border-radius:3px;color:#CF8543;">#vsl-slot</code> con tu código de YouTube / Vimeo / MP4.</span></div>
+            </div>
+            <!-- VSL_EMBED_END -->
+          </div>
+          <!-- Trust strip -->
+          <div style="display:flex;flex-wrap:wrap;gap:18px 24px;margin-bottom:8px;">
+            <div>
+              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">9</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Natural cenotes</span><span class="es">Cenotes naturales</span></div>
+            </div>
+            <div>
+              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">35%</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Max buildable</span><span class="es">Máx. edificable</span></div>
+            </div>
+            <div>
+              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">48mo</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">0% financing</span><span class="es">Financiación 0%</span></div>
+            </div>
+            <div>
+              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">+134%</div>
+              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Confirmed appreciation</span><span class="es">Apreciación confirmada</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: form card -->
+        <div id="form-anchor" class="card" style="padding:24px 22px 22px;">
+          <div id="form-view">
+            <div class="gold-badge mb-3"><span class="en">Request a Call</span><span class="es">Solicitar Llamada</span></div>
+            <h2 class="serif" style="font-size:1.25rem;color:#465241;font-weight:700;line-height:1.25;margin-bottom:4px;">
+              <span class="en">We call you within 24 hours</span><span class="es">Te llamamos en 24 horas</span>
+            </h2>
+            <p style="font-size:0.82rem;color:#6B5F4E;margin-bottom:16px;">
+              <span class="en">No pressure, no spam. 30-minute walkthrough with a senior advisor.</span>
+              <span class="es">Sin presión, sin spam. 30 minutos con un asesor senior.</span>
+            </p>
+            <form class="lead-form" id="lead-form" novalidate>
+              <div class="field-row">
+                <label for="lf-name"><span class="en">Full name</span><span class="es">Nombre completo</span></label>
+                <input type="text" id="lf-name" name="name" autocomplete="name" required minlength="2" placeholder="" />
+              </div>
+              <div class="field-row">
+                <label for="lf-email"><span class="en">Email</span><span class="es">Correo</span></label>
+                <input type="email" id="lf-email" name="email" autocomplete="email" required placeholder="" />
+              </div>
+              <div class="field-row">
+                <label for="lf-phone"><span class="en">Phone (with country code)</span><span class="es">Teléfono (con prefijo internacional)</span></label>
+                <input type="tel" id="lf-phone" name="phone" autocomplete="tel" required minlength="6" placeholder="+34 ..." />
+              </div>
+              <div class="form-error" id="lf-error" aria-live="polite"></div>
+              <button type="submit" class="cta-primary cta-pulse" id="lf-submit">
+                <span class="en">Request my call &rarr;</span><span class="es">Solicitar mi llamada &rarr;</span>
+              </button>
+              <p class="privacy">
+                <span class="en">By submitting, you agree to be contacted about Selvadentro Tulum. We don't share your data. <a href="../index.html">Learn more</a>.</span>
+                <span class="es">Al enviar, aceptas ser contactado sobre Selvadentro Tulum. No compartimos tus datos. <a href="index.html">Más información</a>.</span>
+              </p>
+            </form>
+          </div>
+
+          <div id="form-success" class="form-success" style="display:none;">
+            <div class="check-circle check-pop">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2A6E0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="gold-badge mb-3"><span class="en">Received</span><span class="es">Recibido</span></div>
+            <h3 class="serif" style="font-size:1.3rem;color:#465241;font-weight:700;margin-bottom:8px;">
+              <span class="en">Thank you, <span id="ok-name-en">friend</span></span>
+              <span class="es">Gracias, <span id="ok-name-es">amigo</span></span>
+            </h3>
+            <p style="font-size:0.88rem;color:#6B5F4E;line-height:1.6;margin-bottom:18px;">
+              <span class="en">Our senior advisor will call you within 24 hours. While you're here, scroll down to explore the project.</span>
+              <span class="es">Nuestro asesor senior te llamará en 24 horas. Mientras estás aquí, baja para explorar el proyecto.</span>
+            </p>
+            <a id="wa-link" href="#" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#FFFFFF;padding:11px 20px;border-radius:10px;font-size:0.88rem;font-weight:600;text-decoration:none;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg>
+              <span class="en">Continue on WhatsApp</span><span class="es">Continuar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES TEASER (3 hero shots) -->
+<section style="background:#FFFFFF;padding:44px 0;">
+  <div class="max-w-5xl mx-auto px-5 sm:px-6">
+    <div class="text-center mb-6">
+      <div class="gold-badge mb-3"><span class="en">A Glimpse Inside</span><span class="es">Un Vistazo Adentro</span></div>
+      <h2 class="serif" style="font-size:clamp(1.5rem,3.4vw,2.1rem);color:#465241;font-weight:700;line-height:1.2;">
+        <span class="en">15+ exclusive amenities, in the jungle</span><span class="es">M&aacute;s de 15 amenidades exclusivas en la selva</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 reveal">
+      <div style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#0E190E;">
+        <img src="../amenities/cenote-mirador.webp" alt="Cenote Mirador" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(5,15,5,0.85) 0%,transparent 100%);">
+          <p style="font-size:0.82rem;font-weight:600;color:#FFFFFF;font-family:'Cardo',serif;margin:0;">Cenote Mirador</p>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#0E190E;">
+        <img src="../amenities/pabellon-holistico.webp" alt="Pabellón Holístico" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(5,15,5,0.85) 0%,transparent 100%);">
+          <p style="font-size:0.82rem;font-weight:600;color:#FFFFFF;font-family:'Cardo',serif;margin:0;"><span class="en">Holistic Pavilion</span><span class="es">Pabell&oacute;n Hol&iacute;stico</span></p>
+        </div>
+      </div>
+      <div style="position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#0E190E;">
+        <img src="../amenities/casa-de-los-cenotes.webp" alt="Casa de los Cenotes" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(to top,rgba(5,15,5,0.85) 0%,transparent 100%);">
+          <p style="font-size:0.82rem;font-weight:600;color:#FFFFFF;font-family:'Cardo',serif;margin:0;">Casa de los Cenotes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY (4 cards) -->
+<section style="background:#F8F5EF;padding:56px 0;">
+  <div class="max-w-5xl mx-auto px-5 sm:px-6">
+    <div class="text-center mb-10">
+      <div class="gold-badge mb-4"><span class="en">Why Selvadentro</span><span class="es">Por Qué Selvadentro</span></div>
+      <h2 class="serif" style="font-size:clamp(1.6rem,3.6vw,2.3rem);color:#465241;font-weight:700;line-height:1.2;">
+        <span class="en">What Sets This Investment Apart</span><span class="es">Lo Que Distingue Esta Inversión</span>
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="card p-5 reveal">
+        <div class="verify-badge mb-2">VERIFIED</div>
+        <h3 class="serif" style="font-size:1.05rem;color:#465241;font-weight:600;margin-bottom:6px;">
+          <span class="en">35% Max Buildable</span><span class="es">35% Máximo Edificable</span>
+        </h3>
+        <p style="font-size:0.86rem;color:#6B5F4E;line-height:1.55;margin:0;">
+          <span class="en">65% of your land stays as private jungle — the actual legal condition of the development.</span>
+          <span class="es">El 65% de tu terreno permanece como selva privada — es la condición legal real del desarrollo.</span>
+        </p>
+      </div>
+      <div class="card p-5 reveal" style="transition-delay:0.08s;">
+        <div class="verify-badge mb-2">VERIFIED</div>
+        <h3 class="serif" style="font-size:1.05rem;color:#465241;font-weight:600;margin-bottom:6px;">
+          <span class="en">9 Natural Cenotes</span><span class="es">9 Cenotes Naturales</span>
+        </h3>
+        <p style="font-size:0.86rem;color:#6B5F4E;line-height:1.55;margin:0;">
+          <span class="en">Each cenote exists naturally in the terrain. No artificial excavations. Irreplaceable.</span>
+          <span class="es">Cada cenote existe de forma natural en el terreno. Sin excavaciones artificiales. Irremplazable.</span>
+        </p>
+      </div>
+      <div class="card p-5 reveal" style="transition-delay:0.16s;">
+        <div class="verify-badge mb-2">VERIFIED</div>
+        <h3 class="serif" style="font-size:1.05rem;color:#465241;font-weight:600;margin-bottom:6px;">
+          <span class="en">+134% Confirmed Appreciation</span><span class="es">+134% Apreciación Confirmada</span>
+        </h3>
+        <p style="font-size:0.86rem;color:#6B5F4E;line-height:1.55;margin:0;">
+          <span class="en">Phase 1 buyers lock today's price. By Phase 4, prices are 134% higher — built into the structure.</span>
+          <span class="es">Compradores de Fase 1 aseguran el precio de hoy. En Fase 4, los precios serán 134% más altos.</span>
+        </p>
+      </div>
+      <div class="card p-5 reveal" style="transition-delay:0.24s;">
+        <div class="verify-badge mb-2">VERIFIED</div>
+        <h3 class="serif" style="font-size:1.05rem;color:#465241;font-weight:600;margin-bottom:6px;">
+          <span class="en">48-Month 0% Financing</span><span class="es">Financiación 48 Meses 0%</span>
+        </h3>
+        <p style="font-size:0.86rem;color:#6B5F4E;line-height:1.55;margin:0;">
+          <span class="en">20% down, 60% over the term, 20% on delivery. Project delivery: 2029.</span>
+          <span class="es">20% de enganche, 60% en mensualidades, 20% a la entrega. Entrega del proyecto: 2029.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERPLAN -->
+<section style="background:#FFFFFF;padding:56px 0;">
+  <div class="max-w-5xl mx-auto px-5 sm:px-6">
+    <div class="text-center mb-8">
+      <div class="gold-badge mb-4"><span class="en">The Land</span><span class="es">El Terreno</span></div>
+      <h2 class="serif" style="font-size:clamp(1.6rem,3.6vw,2.3rem);color:#465241;font-weight:700;line-height:1.2;">
+        <span class="en">Official Master Plan</span><span class="es">Plan Maestro Oficial</span>
+      </h2>
+      <p style="font-size:0.92rem;color:#6B5F4E;margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto;">
+        <span class="en">Tulum, Quintana Roo. Aldea Zama development zone. Phase 1 lots from $70,000 USD.</span>
+        <span class="es">Tulum, Quintana Roo. Zona Aldea Zama. Lotes Fase 1 desde $70,000 USD.</span>
+      </p>
+    </div>
+    <div class="card overflow-hidden reveal" style="padding:8px;">
+      <img src="../selvadentro-masterplan.webp" alt="Selvadentro Tulum master plan" loading="lazy" style="width:100%;height:auto;display:block;border-radius:10px;max-height:520px;object-fit:contain;"/>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SNAPSHOT -->
+<section style="background:#0E190E;padding:56px 0;color:#F5F0E6;">
+  <div class="max-w-5xl mx-auto px-5 sm:px-6">
+    <div class="text-center mb-8">
+      <p style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:rgba(207,133,67,0.55);margin-bottom:8px;">
+        <span class="en">Phase 1 — Available Now</span><span class="es">Fase 1 — Disponible Hoy</span>
+      </p>
+      <div class="serif font-bold en" style="font-size:clamp(2.4rem,6vw,3.6rem);color:#CF8543;line-height:1.1;">$70,000 <span style="font-size:0.45em;color:rgba(207,133,67,0.65);">USD</span></div>
+      <div class="serif font-bold es" style="font-size:clamp(2.4rem,6vw,3.6rem);color:#CF8543;line-height:1.1;">$70,000 <span style="font-size:0.45em;color:rgba(207,133,67,0.65);">USD</span></div>
+      <p style="font-size:0.85rem;color:rgba(245,240,230,0.5);margin-top:8px;">
+        <span class="en">Lots from ~4,300 sqft &middot; 48-month 0% financing</span>
+        <span class="es">Lotes desde ~400 m² &middot; Financiación 48 meses 0%</span>
+      </p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 reveal">
+      <div class="phase-mini current">
+        <div class="ph-label" style="color:#CF8543;"><span class="en">Phase 1 (Now)</span><span class="es">Fase 1 (Hoy)</span></div>
+        <p class="ph-price" style="color:#CF8543;">$70K</p>
+        <p style="font-size:0.55rem;color:rgba(207,133,67,0.65);margin-top:3px;">USD</p>
+      </div>
+      <div class="phase-mini">
+        <div class="ph-label" style="color:rgba(245,240,230,0.5);"><span class="en">Phase 2</span><span class="es">Fase 2</span></div>
+        <p class="ph-price" style="color:rgba(245,240,230,0.85);">$115K</p>
+        <p style="font-size:0.55rem;color:rgba(245,240,230,0.35);margin-top:3px;">+64%</p>
+      </div>
+      <div class="phase-mini">
+        <div class="ph-label" style="color:rgba(245,240,230,0.5);"><span class="en">Phase 3</span><span class="es">Fase 3</span></div>
+        <p class="ph-price" style="color:rgba(245,240,230,0.85);">$131K</p>
+        <p style="font-size:0.55rem;color:rgba(245,240,230,0.35);margin-top:3px;">+87%</p>
+      </div>
+      <div class="phase-mini">
+        <div class="ph-label" style="color:rgba(245,240,230,0.5);"><span class="en">Phase 4</span><span class="es">Fase 4</span></div>
+        <p class="ph-price" style="color:rgba(245,240,230,0.85);">$164K</p>
+        <p style="font-size:0.55rem;color:rgba(245,240,230,0.35);margin-top:3px;">+134%</p>
+      </div>
+    </div>
+    <p style="font-size:0.7rem;color:rgba(245,240,230,0.42);text-align:center;margin-top:16px;line-height:1.5;">
+      <span class="en">Prices are confirmed and scheduled. Phase 1 buyers lock today's price regardless of future increases.</span>
+      <span class="es">Los precios están confirmados y programados. Los compradores de Fase 1 aseguran el precio actual.</span>
+    </p>
+    <div style="text-align:center;margin-top:28px;">
+      <a href="#form-anchor" class="cta-primary cta-pulse px-8 py-3 rounded-xl text-sm">
+        <span class="en">Lock Phase 1 — Request a Call</span><span class="es">Asegurar Fase 1 — Solicitar Llamada</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#465241;padding:36px 24px;text-align:center;">
+  <p style="font-size:0.78rem;color:rgba(245,240,230,0.5);margin-bottom:8px;">
+    <a href="tel:+529841374927" style="color:rgba(207,133,67,0.75);text-decoration:none;">+52 984 137 4927</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:d.comercial@selvadentrotulum.com" style="color:rgba(207,133,67,0.75);text-decoration:none;">d.comercial@selvadentrotulum.com</a>
+  </p>
+  <p style="font-size:0.72rem;color:rgba(245,240,230,0.32);">&copy; 2026 Selvadentro Tulum &middot; <a href="../index.html" style="color:rgba(207,133,67,0.55);"><span class="en">Full investor site</span><span class="es">Sitio inversor completo</span></a></p>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#form-anchor" class="cta-primary block py-3 rounded-xl text-sm" style="display:block;">
+    <span class="en">Request my call &rarr;</span><span class="es">Solicitar mi llamada &rarr;</span>
+  </a>
+</div>
+
+<script>
+// Reveal on scroll
+(function(){
+  if (!window.IntersectionObserver) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+
+// Show sticky CTA after scrolling past hero
+(function(){
+  var sticky = document.getElementById('sticky-cta');
+  var anchor = document.getElementById('form-anchor');
+  if (!sticky || !anchor) return;
+  function update(){
+    var rect = anchor.getBoundingClientRect();
+    var pastForm = rect.bottom < 0;
+    sticky.classList.toggle('shown', pastForm);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+// Form submit → POST JSON to webhook → show success
+(function(){
+  var form = document.getElementById('lead-form');
+  var errEl = document.getElementById('lf-error');
+  var btn = document.getElementById('lf-submit');
+  var formView = document.getElementById('form-view');
+  var successView = document.getElementById('form-success');
+  if (!form) return;
+
+  function getUTM(){
+    var p = new URLSearchParams(window.location.search);
+    var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var out = {};
+    keys.forEach(function(k){ var v = p.get(k); if (v) out[k] = v; });
+    return out;
+  }
+
+  function setError(msg){ errEl.textContent = msg || ''; }
+
+  function showSuccess(name){
+    var first = (name || '').trim().split(/\s+/)[0] || '';
+    document.getElementById('ok-name-en').textContent = first || 'friend';
+    document.getElementById('ok-name-es').textContent = first || 'amigo';
+    var wa = document.getElementById('wa-link');
+    if (wa && window.MADRID_CONFIG && window.MADRID_CONFIG.WHATSAPP_NUMBER) {
+      var lang = document.documentElement.lang;
+      var msg = lang === 'es'
+        ? 'Hola, soy ' + (first || '') + '. Nos vimos en el evento de Madrid y me gustaría más información sobre Selvadentro.'
+        : 'Hi, I\'m ' + (first || '') + '. We met at the Madrid event and I\'d like more info about Selvadentro.';
+      wa.href = 'https://wa.me/' + window.MADRID_CONFIG.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(msg);
+    }
+    formView.style.display = 'none';
+    successView.style.display = 'block';
+    if (typeof fbq === 'function') {
+      try { fbq('track', 'Lead', { source: window.MADRID_CONFIG.SOURCE }); } catch (_) {}
+    }
+  }
+
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    setError('');
+
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var phone = form.phone.value.trim();
+
+    if (!name || name.length < 2) { setError(document.documentElement.lang === 'es' ? 'Por favor introduce tu nombre.' : 'Please enter your name.'); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { setError(document.documentElement.lang === 'es' ? 'Correo electrónico no válido.' : 'Invalid email address.'); return; }
+    if (!phone || phone.replace(/\D/g, '').length < 6) { setError(document.documentElement.lang === 'es' ? 'Teléfono no válido. Incluye el prefijo internacional.' : 'Invalid phone. Include country code.'); return; }
+
+    btn.disabled = true;
+    var btnSpans = btn.innerHTML;
+    btn.innerHTML = document.documentElement.lang === 'es' ? 'Enviando…' : 'Sending…';
+
+    var payload = {
+      name: name,
+      email: email,
+      phone: phone,
+      lang: document.documentElement.lang,
+      source: (window.MADRID_CONFIG && window.MADRID_CONFIG.SOURCE) || 'madrid-event',
+      page_url: window.location.href,
+      referrer: document.referrer || null,
+      utm: getUTM(),
+      ts: new Date().toISOString()
+    };
+
+    var url = window.MADRID_CONFIG && window.MADRID_CONFIG.WEBHOOK_URL;
+
+    if (!url || url === 'REPLACE_WITH_WEBHOOK_URL') {
+      console.warn('[MADRID] WEBHOOK_URL not configured. Payload:', payload);
+      // Still show success so the page is testable before the webhook is wired.
+      setTimeout(function(){ showSuccess(name); }, 400);
+      return;
+    }
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      mode: 'cors'
+    }).then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      showSuccess(name);
+    }).catch(function(err){
+      console.error('[MADRID] Submit failed:', err);
+      btn.disabled = false;
+      btn.innerHTML = btnSpans;
+      setError(document.documentElement.lang === 'es'
+        ? 'No pudimos enviar el formulario. Llámanos al +52 984 137 4927 o escríbenos por WhatsApp.'
+        : 'We couldn\'t send the form. Call us at +52 984 137 4927 or message us on WhatsApp.');
+    });
+  });
+})();
+</script>
+</body>
+</html>
