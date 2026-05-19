@@ -75,10 +75,19 @@
     }
     @media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } .cta-pulse, .check-pop { animation: none; opacity: 1; transform: none; } }
 
-    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: start; }
-    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 440px; gap: 48px; } }
+    /* Hero layout — single centered column, VSL dominant */
+    .hero-grid { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+    .hero-headline { text-align: center; max-width: 820px; }
+    .hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 40px; }
+    .hero-stats > div { text-align: center; }
+    .hero-form-card { width: 100%; max-width: 560px; }
+    @media (max-width: 639px) {
+      .hero-grid { gap: 22px; }
+      .hero-stats { gap: 12px 28px; }
+      .hero-stats .serif { font-size: 1.25rem !important; }
+    }
 
-    .vsl-slot { position: relative; width: 100%; max-width: 580px; aspect-ratio: 16/9; background: #0E190E; border-radius: 14px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(207,133,67,0.12); }
+    .vsl-slot { position: relative; width: 100%; max-width: 960px; aspect-ratio: 16/9; background: #0E190E; border-radius: 14px; overflow: hidden; box-shadow: 0 14px 50px rgba(0,0,0,0.45), 0 0 0 1px rgba(207,133,67,0.18); }
     .vsl-slot iframe, .vsl-slot video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
     .vsl-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: rgba(245,240,230,0.7); text-align: center; padding: 16px; background: radial-gradient(circle at 50% 45%, rgba(207,133,67,0.18) 0%, rgba(14,25,14,0) 65%); }
     .vsl-placeholder .vsl-play { width: 72px; height: 72px; border-radius: 50%; background: rgba(207,133,67,0.18); border: 1.5px solid rgba(207,133,67,0.55); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
@@ -132,65 +141,54 @@
   <div style="position:relative;z-index:10;">
     <div class="max-w-5xl mx-auto px-5 sm:px-6" style="padding-top:40px;padding-bottom:52px;">
       <div class="hero-grid">
-        <div>
+        <!-- Headline -->
+        <div class="hero-headline">
           <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(207,133,67,0.18);border:1px solid rgba(207,133,67,0.4);border-radius:20px;padding:5px 14px;margin-bottom:18px;">
             <span style="width:7px;height:7px;background:#CF8543;border-radius:50%;animation:pulse-sec 1.5s ease-in-out infinite;display:inline-block;"></span>
             <span style="font-size:0.68rem;color:#CF8543;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;"><span class="en">Madrid Event &middot; Exclusive Access</span><span class="es">Evento Madrid &middot; Acceso Exclusivo</span></span>
           </div>
-          <h1 class="serif" style="font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.15;color:#FFFFFF;font-weight:700;margin-bottom:16px;">
-            <span class="en">Thanks for visiting us<br/><em style="color:#CF8543;font-style:normal;">in Madrid</em></span>
-            <span class="es">Gracias por visitarnos<br/><em style="color:#CF8543;font-style:normal;">en Madrid</em></span>
+          <h1 class="serif" style="font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.1;color:#FFFFFF;font-weight:700;margin-bottom:14px;">
+            <span class="en">Thanks for visiting us <em style="color:#CF8543;font-style:normal;">in Madrid</em></span>
+            <span class="es">Gracias por visitarnos <em style="color:#CF8543;font-style:normal;">en Madrid</em></span>
           </h1>
-          <p style="font-size:1rem;color:rgba(255,255,255,0.82);line-height:1.65;margin-bottom:22px;max-width:520px;">
-            <span class="en">Leave your details and a senior investment advisor will call you within 24 hours to walk you through Phase 1 pricing and answer every question.</span>
-            <span class="es">Déjanos tus datos y un asesor senior de inversión te llamará en 24 horas para explicarte los precios de Fase 1 y responder todas tus preguntas.</span>
+          <p style="font-size:1.02rem;color:rgba(255,255,255,0.82);line-height:1.55;margin:0 auto;max-width:580px;">
+            <span class="en">Watch the walkthrough &mdash; a senior advisor will call you within 24 hours.</span>
+            <span class="es">Mira la presentaci&oacute;n &mdash; un asesor senior te llamar&aacute; en 24 horas.</span>
           </p>
-          <!-- ════════════════════════════════════════════════════════════════════
-               VSL VIDEO SLOT — Replace the contents of #vsl-slot with your embed.
-               Search for: VSL_EMBED_START
+        </div>
 
-               YouTube example:
-                 <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1"
-                         allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <!-- VSL — dominant, full width -->
+        <div class="vsl-slot" id="vsl-slot">
+          <!-- VSL_EMBED_START -->
+          <script src="https://fast.wistia.com/player.js" async></script>
+          <script src="https://fast.wistia.com/embed/jn8el9or7a.js" async type="module"></script>
+          <style>wistia-player[media-id='jn8el9or7a']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jn8el9or7a/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+          <wistia-player media-id="jn8el9or7a" aspect="1.7777777777777777"></wistia-player>
+          <!-- VSL_EMBED_END -->
+        </div>
 
-               Vimeo example:
-                 <iframe src="https://player.vimeo.com/video/VIDEO_ID?title=0&byline=0"
-                         allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
-               Self-hosted MP4:
-                 <video controls playsinline poster="../../vsl-poster.jpg" preload="metadata">
-                   <source src="../../vsl.mp4" type="video/mp4">
-                 </video>
-               ════════════════════════════════════════════════════════════════════ -->
-          <div class="vsl-slot" id="vsl-slot">
-            <!-- VSL_EMBED_START -->
-            <script src="https://fast.wistia.com/player.js" async></script>
-            <script src="https://fast.wistia.com/embed/jn8el9or7a.js" async type="module"></script>
-            <style>wistia-player[media-id='jn8el9or7a']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/jn8el9or7a/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
-            <wistia-player media-id="jn8el9or7a" aspect="1.7777777777777777"></wistia-player>
-            <!-- VSL_EMBED_END -->
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div>
+            <div class="serif" style="font-size:1.45rem;font-weight:700;color:#CF8543;line-height:1;">9</div>
+            <div style="font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Natural cenotes</span><span class="es">Cenotes naturales</span></div>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:18px 24px;margin-bottom:8px;">
-            <div>
-              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">9</div>
-              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Natural cenotes</span><span class="es">Cenotes naturales</span></div>
-            </div>
-            <div>
-              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">35%</div>
-              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Max buildable</span><span class="es">Máx. edificable</span></div>
-            </div>
-            <div>
-              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">48mo</div>
-              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">0% financing</span><span class="es">Financiación 0%</span></div>
-            </div>
-            <div>
-              <div class="serif" style="font-size:1.4rem;font-weight:700;color:#CF8543;line-height:1;">+134%</div>
-              <div style="font-size:0.66rem;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Confirmed appreciation</span><span class="es">Apreciación confirmada</span></div>
-            </div>
+          <div>
+            <div class="serif" style="font-size:1.45rem;font-weight:700;color:#CF8543;line-height:1;">35%</div>
+            <div style="font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Max buildable</span><span class="es">Máx. edificable</span></div>
+          </div>
+          <div>
+            <div class="serif" style="font-size:1.45rem;font-weight:700;color:#CF8543;line-height:1;">48mo</div>
+            <div style="font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">0% financing</span><span class="es">Financiación 0%</span></div>
+          </div>
+          <div>
+            <div class="serif" style="font-size:1.45rem;font-weight:700;color:#CF8543;line-height:1;">+134%</div>
+            <div style="font-size:0.66rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;"><span class="en">Confirmed appreciation</span><span class="es">Apreciación confirmada</span></div>
           </div>
         </div>
 
-        <div id="form-anchor" class="card" style="padding:24px 22px 22px;">
+        <!-- Form card centered -->
+        <div id="form-anchor" class="card hero-form-card" style="padding:24px 22px 22px;">
           <div id="form-view">
             <div class="gold-badge mb-3"><span class="en">Request a Call</span><span class="es">Solicitar Llamada</span></div>
             <h2 class="serif" style="font-size:1.25rem;color:#465241;font-weight:700;line-height:1.25;margin-bottom:4px;">
